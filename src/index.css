@@ -10,6 +10,8 @@
   }
   body {
     @apply bg-primary text-slate-300 font-body antialiased;
+    background-image: radial-gradient(circle at 50% -20%, #2a155c 0%, #030014 60%);
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading text-white;
@@ -18,7 +20,15 @@
 
 @layer components {
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    @apply bg-[#030014]/30 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px rgba(112, 66, 248, 0.4);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(112, 66, 248, 0.8);
   }
   
   .section-padding {
@@ -26,19 +36,32 @@
   }
   
   .btn-primary {
-    @apply bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+    @apply bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-secondary/20 hover:shadow-secondary/40;
   }
   
   .btn-outline {
-    @apply border border-secondary text-secondary hover:bg-secondary hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+    @apply border border-secondary/50 text-white hover:bg-secondary/10 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 backdrop-blur-sm;
   }
 
   .nav-link {
-    @apply text-slate-300 hover:text-secondary transition-colors duration-300 font-medium;
+    @apply text-slate-300 hover:text-white transition-all duration-300 font-medium relative overflow-hidden;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary via-[#a855f7] to-[#00d2ff] font-bold;
+  }
+
+  .card-hover {
+    @apply hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-500 cursor-default;
   }
 }
 
@@ -53,4 +76,13 @@
 
 ::-webkit-scrollbar-thumb {
   @apply bg-secondary/30 rounded-full hover:bg-secondary/50 transition-colors;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

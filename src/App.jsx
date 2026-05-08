@@ -3,12 +3,11 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
+import Showcase from './components/Showcase';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Welcome from './components/Welcome';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -25,19 +24,18 @@ function App() {
         className="fixed top-0 left-0 right-0 h-1 bg-secondary origin-left z-[60]"
         style={{ scaleX }}
       />
-      
+
       <Navbar />
-      
+
       <main>
+        <Welcome />
         <Hero />
         <About />
-        <Skills />
         <Experience />
-        <Projects />
-        <Education />
+        <Showcase />
         <Contact />
       </main>
-      
+
       <Footer />
     </div>
   );

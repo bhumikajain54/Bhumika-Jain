@@ -4,35 +4,29 @@ import { Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="py-12 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold gradient-text mb-2">BJ</h3>
-            <p className="text-slate-500 text-sm max-w-xs">
-              Building modern web experiences with Java, Spring Boot, and React.
+    <footer className="py-20 border-t border-white/5 relative overflow-hidden bg-primary">
+      <div className="max-w-7xl mx-auto px-6 z-10 relative">
+        <div className="flex flex-col items-center gap-12">
+          {/* Copyright Info */}
+          <div className="flex flex-col items-center gap-4 text-center">
+            <h3 className="text-2xl font-black gradient-text">BJ</h3>
+            <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">
+              © {currentYear} {personalDetails.name}. All Rights Reserved.
             </p>
-          </div>
-          
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <div className="flex gap-8 text-sm font-medium">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Home</a>
-              <a href="#about" className="text-slate-400 hover:text-white transition-colors">About</a>
-              <a href="#skills" className="text-slate-400 hover:text-white transition-colors">Skills</a>
-              <a href="#projects" className="text-slate-400 hover:text-white transition-colors">Projects</a>
-              <a href="#contact" className="text-slate-400 hover:text-white transition-colors">Contact</a>
+            <div className="flex items-center text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+              Crafted with <Heart size={10} className="mx-2 text-red-500/60 fill-red-500/20" /> in India
             </div>
-            <p className="text-slate-500 text-sm flex items-center">
-              © {currentYear} {personalDetails.name}. All Rights Reserved. 
-              <span className="ml-2 flex items-center">Made with <Heart size={14} className="mx-1 text-red-500 fill-red-500" /> in India</span>
-            </p>
           </div>
         </div>
       </div>
+
+      {/* Decorative Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
     </footer>
   );
 };
 
 export default Footer;
+

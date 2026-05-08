@@ -6,6 +6,7 @@ export const personalDetails = {
   email: "bhumikajain182001@gmail.com",
   linkedin: "https://linkedin.com/in/jain-bhumika",
   github: "https://github.com/bhumikajain54",
+  Instagram: "https://www.instagram.com/yovexaprime?igsh=MXF6ZDVjNmZ0b2xqOQ==",
   summary: "Full Stack Developer with hands-on experience in building scalable web applications using Java, Spring Boot, React, and Angular. Skilled in REST API development, JWT authentication, and database optimization. Strong collaborator in Agile environments with a focus on performance and security."
 };
 
@@ -88,7 +89,8 @@ export const projects = [
       "Admin analytics and reporting dashboard"
     ],
     github: "#",
-    demo: "https://jobsahi.netlify.app/"
+    demo: "https://jobsahi.netlify.app/",
+    image: "/project-images/jobsahi.png"
   },
   {
     title: "EMS (Employee Management System)",
@@ -100,7 +102,8 @@ export const projects = [
       "Secure REST API integration"
     ],
     github: "https://github.com/bhumikajain54/EmployeeManagementSystem",
-    demo: "https://nitsolution.netlify.app/login"
+    demo: "https://nitsolution.netlify.app/login",
+    image: "/project-images/ems.png"
   },
   {
     title: "Insurance MIS (Management Information System)",
@@ -112,7 +115,8 @@ export const projects = [
       "Centralized information repository"
     ],
     github: "https://github.com/bhumikajain54/MIS-Insurance",
-    demo: "#"
+    demo: "#",
+    image: "/project-images/insurance_mis.png"
   },
   {
     title: "Full-Stack MIS (Management Information System)",
@@ -124,7 +128,8 @@ export const projects = [
       "Centralized information repository"
     ],
     github: "https://github.com/bhumikajain54/CODEB",
-    demo: "https://misinvoicing.netlify.app"
+    demo: "https://misinvoicing.netlify.app",
+    image: "/project-images/fullstack_mis.png"
   },
   {
     title: "ZigCab Frontend",
@@ -136,7 +141,8 @@ export const projects = [
       "Created a responsive and mobile-friendly user experience"
     ],
     github: "https://github.com/bhuvneshindoriya/zigcab_admin_intern/tree/bhumika_dev",
-    demo: "https://github.com/bhuvneshindoriya/zigcab_admin_intern/tree/bhumika_dev"
+    demo: "https://github.com/bhuvneshindoriya/zigcab_admin_intern/tree/bhumika_dev",
+    image: "/project-images/zigcab.png"
   },
   {
     title: "Sanitary Ware E-Commerce Platform",
@@ -148,7 +154,8 @@ export const projects = [
       "Optimized for cross-device compatibility and performance"
     ],
     github: "https://github.com/bhumikajain54/Web-Designing1",
-    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html"
+    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
+    image: "/project-images/sanitary_ecommerce.png"
   },
   {
     title: "Full Stack Sanitary Ware Shop",
@@ -160,7 +167,8 @@ export const projects = [
       "Modern, responsive UI with smooth animations"
     ],
     github: "https://github.com/bhumikajain54/sanitaryware",
-    demo: "https://singhai-traders.netlify.app/"
+    demo: "https://singhai-traders.netlify.app/",
+    image: "/project-images/sanitary_shop.png"
   },
   {
     title: "Vikram School Website",
@@ -172,7 +180,8 @@ export const projects = [
       "Highly responsive and accessible user interface"
     ],
     github: "https://github.com/bhumikajain54",
-    demo: "https://vikramschool1.netlify.app/"
+    demo: "https://vikramschool1.netlify.app/",
+    image: "/project-images/vikram_school.png"
   },
   {
     title: "Pankhuri's Cakes & Kitchen",
@@ -184,7 +193,8 @@ export const projects = [
       "Optimized for fast loading and mobile experience"
     ],
     github: "https://github.com/bhumikajain54/Web-designing3",
-    demo: "https://bhumikajain54.github.io/Web-designing3/Cake.html"
+    demo: "https://bhumikajain54.github.io/Web-designing3/Cake.html",
+    image: "/project-images/cakes_kitchen.png"
   },
   {
     title: "Vegetable Shopping Website",
@@ -196,7 +206,8 @@ export const projects = [
       "Fully responsive and cross-browser compatible"
     ],
     github: "https://github.com/bhumikajain54/Web-designing2",
-    demo: "https://bhumikajain54.github.io/Web-designing2/grocerystoremanagementsystem.html"
+    demo: "https://bhumikajain54.github.io/Web-designing2/grocerystoremanagementsystem.html",
+    image: "/project-images/vegetable_store.png"
   },
   {
     title: "Digital Newspaper Page",
@@ -208,7 +219,8 @@ export const projects = [
       "Typography-focused design for optimal readability"
     ],
     github: "https://github.com/bhumikajain54/Web-designing",
-    demo: "https://bhumikajain54.github.io/Web-designing/newspaper1.html"
+    demo: "https://bhumikajain54.github.io/Web-designing/newspaper1.html",
+    image: "/project-images/digital_newspaper.png"
   },
   {
     title: "Bhumika Jain Portfolio (HTML/CSS)",
@@ -220,7 +232,8 @@ export const projects = [
       "Semantic markup for optimal accessibility and SEO"
     ],
     github: "https://github.com/bhumikajain54/Portfoilo",
-    demo: "https://bhumikajain54.github.io/Portfoilo/"
+    demo: "https://bhumikajain54.github.io/Portfoilo/",
+    image: "/project-images/bhumika_portfolio_html.png"
   },
   {
     title: "Avinesh Jain Portfolio",
@@ -232,7 +245,8 @@ export const projects = [
       "Fully responsive design optimized for all screen sizes"
     ],
     github: "https://github.com/bhumikajain54/Avinesh-Jain",
-    demo: "https://portfolioaviijainm.netlify.app/"
+    demo: "https://portfolioaviijainm.netlify.app/",
+    image: "/project-images/avinesh_portfolio.png"
   },
   {
     title: "Omkar Chavan Portfolio",
@@ -244,7 +258,8 @@ export const projects = [
       "Interactive UI components for an engaging user experience"
     ],
     github: "https://github.com/bhumikajain54/Omkar-Chavan",
-    demo: "https://omkar-portfolio1.netlify.app/"
+    demo: "https://omkar-portfolio1.netlify.app/",
+    image: "/project-images/omkar_portfolio.png"
   },
   {
     title: "Aarti Nathani Portfolio",
@@ -256,7 +271,8 @@ export const projects = [
       "Fully responsive layout optimized for high-end visual storytelling"
     ],
     github: "https://github.com/bhumikajain54/Aarti-Nathani",
-    demo: "https://aartinathani.netlify.app/"
+    demo: "https://aartinathani.netlify.app/",
+    image: "/project-images/aarti_portfolio.png"
   },
   {
     title: "Webbiez-infotech",
@@ -268,7 +284,8 @@ export const projects = [
       "Responsive layout ensuring optimal viewing across all devices"
     ],
     github: "https://github.com/bhumikajain54/webbiez-infotech",
-    demo: "https://webbiez-infotech.netlify.app/"
+    demo: "https://webbiez-infotech.netlify.app/",
+    image: "/project-images/webbiez.png"
   },
   {
     title: "Old Bhumika Portfolio",
@@ -280,7 +297,8 @@ export const projects = [
       "Responsive layout ensuring optimal viewing across all devices"
     ],
     github: "https://github.com/bhumikajain54/Old-Bhumika-Portfolio",
-    demo: "https://beautiful-cheesecake-59695c.netlify.app/"
+    demo: "https://beautiful-cheesecake-59695c.netlify.app/",
+    image: "/project-images/old_portfolio_2.png"
   }
 ];
 
@@ -303,12 +321,16 @@ export const education = [
 ];
 
 export const certifications = [
-  "Java Programming – Great Learning",
-  "Machine Learning (ML) – Acmegrade",
-  "Full Stack Java Developer – Itvedant",
-  "Java (Basic) – HackerRank (ID: E73E4208152D)",
-  "SQL (Basic) – HackerRank",
-  "Java Fundamentals – IBM"
+  { title: "Full Stack Java Developer", image: "/src/assets/fsdspringboot.jpg" },
+  { title: "Core Java Programming", image: "/src/assets/corejava.jpg" },
+  { title: "Advanced Web Design", image: "/src/assets/advancedwebdesign.jpg" },
+  { title: "SQL Database Management", image: "/src/assets/sql.jpg" },
+  { title: "MongoDB Developer", image: "/src/assets/mongodb.jpg" },
+  { title: "Core Web Design", image: "/src/assets/corewebdesign.jpg" },
+  { title: "Testing in Java", image: "/src/assets/testinginjava.jpg" },
+  { title: "Project & Case Studies (JFSD)", image: "/src/assets/projectandcasestudiesjfsd.jpg" },
+  { title: "Profile Building", image: "/src/assets/profilebuilding.jpg" },
+  { title: "CCE Certificate", image: "/src/assets/cce_certificate.jpg" }
 ];
 
 export const achievements = [

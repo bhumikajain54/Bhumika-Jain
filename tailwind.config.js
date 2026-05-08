@@ -8,13 +8,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0f172a",
-        secondary: "#6366f1",
-        accent: "#22c55e",
+        primary: "#030014",
+        secondary: "#7042f8",
+        accent: "#bb2649", // A warmer accent or stay with cyan
+        card: "rgba(17, 12, 46, 0.45)",
       },
       fontFamily: {
         heading: ["Poppins", "Inter", "sans-serif"],
-        body: ["Roboto", "sans-serif"],
+        body: ["Inter", "sans-serif"],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'main-gradient': 'linear-gradient(to bottom, #030014, #0a0a2e)',
       },
       backdropBlur: {
         xs: '2px',
