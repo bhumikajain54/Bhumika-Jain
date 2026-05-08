@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, skills, certifications, achievements, education } from '../data';
-import { ExternalLink, Layers, Code2, Award, CheckCircle, Smartphone, Globe, Shield, GraduationCap } from 'lucide-react';
+import { ExternalLink, Layers, Code2, Award, CheckCircle, Smartphone, Globe, Shield, GraduationCap, ChevronDown } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 const Showcase = () => {
   const [activeTab, setActiveTab] = useState('projects');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showAllCertificates, setShowAllCertificates] = useState(false);
+  const [showAllSkills, setShowAllSkills] = useState(false);
 
   const tabs = [
     { id: 'projects', label: 'Projects', icon: <Layers size={18} /> },
@@ -14,6 +17,11 @@ const Showcase = () => {
     { id: 'education', label: 'Education', icon: <GraduationCap size={18} /> },
     { id: 'skills', label: 'Tech Stack', icon: <Code2 size={18} /> },
   ];
+
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
+  const displayedCertificates = showAllCertificates ? certifications : certifications.slice(0, 6);
+  const flattenedSkills = skills.flatMap(s => s.items);
+  const displayedSkills = showAllSkills ? flattenedSkills : flattenedSkills.slice(0, 12);
 
   return (
     <section id="portfolio" className="section-padding relative overflow-hidden">
@@ -73,50 +81,75 @@ const Showcase = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
-                {projects.map((project, idx) => (
-                  <motion.div
-                    key={idx}
-                    layout
-                    className="group rounded-[2.5rem] glass border border-white/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden card-hover"
-                  >
-                    <div className="aspect-video relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10 opacity-60" />
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-40 group-hover:opacity-60"
-                      />
-                      <div className="absolute top-6 left-6 z-20 flex gap-2">
-                        {project.tech.slice(0, 2).map((t, i) => (
-                          <span key={i} className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 bg-secondary/20 text-secondary rounded-full border border-secondary/30 backdrop-blur-md">
-                            {t}
-                          </span>
-                        ))}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {displayedProjects.map((project, idx) => (
+                    <motion.div
+                      key={idx}
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      className="group rounded-[2.5rem] glass border border-white/5 hover:border-secondary/30 transition-all duration-500 overflow-hidden card-hover"
+                    >
+                      <div className="aspect-video relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10 opacity-60" />
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-40 group-hover:opacity-60"
+                        />
+                        <div className="absolute top-6 left-6 z-20 flex gap-2">
+                          {project.tech.slice(0, 2).map((t, i) => (
+                            <span key={i} className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 bg-secondary/20 text-secondary rounded-full border border-secondary/30 backdrop-blur-md">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="p-8 relative">
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">{project.title}</h3>
-                      <p className="text-sm text-slate-400 line-clamp-2 mb-6 leading-relaxed">
-                        {project.features[0]}
-                      </p>
                       
-                      <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center text-xs font-bold text-slate-500 hover:text-secondary transition-colors">
-                          Live Demo <ExternalLink size={14} className="ml-1" />
-                        </a>
-                        <button 
-                          onClick={() => setSelectedProject(project)}
-                          className="px-4 py-2 rounded-xl bg-white/5 text-white text-xs font-bold border border-white/10 hover:bg-secondary hover:border-secondary transition-all"
-                        >
-                          Details →
-                        </button>
+                      <div className="p-8 relative">
+                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">{project.title}</h3>
+                        <p className="text-sm text-slate-400 line-clamp-2 mb-6 leading-relaxed">
+                          {project.features[0]}
+                        </p>
+                        
+                        <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center text-xs font-bold text-slate-500 hover:text-secondary transition-colors">
+                            Live Demo <ExternalLink size={14} className="ml-1" />
+                          </a>
+                          <button 
+                            onClick={() => setSelectedProject(project)}
+                            className="px-4 py-2 rounded-xl bg-white/5 text-white text-xs font-bold border border-white/10 hover:bg-secondary hover:border-secondary transition-all"
+                          >
+                            Details →
+                          </button>
+                        </div>
                       </div>
-                    </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* See More Button */}
+                {projects.length > 6 && (
+                  <motion.div 
+                    layout
+                    className="mt-12 flex justify-start"
+                  >
+                    <button
+                      onClick={() => setShowAllProjects(!showAllProjects)}
+                      className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 font-bold text-sm tracking-widest uppercase"
+                    >
+                      {showAllProjects ? 'See Less' : 'See More'}
+                      <motion.div
+                        animate={{ rotate: showAllProjects ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronDown size={18} />
+                      </motion.div>
+                    </button>
                   </motion.div>
-                ))}
+                )}
               </motion.div>
             )}
 
@@ -139,7 +172,7 @@ const Showcase = () => {
                   </div>
                   
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {certifications.map((cert, idx) => (
+                    {displayedCertificates.map((cert, idx) => (
                       <motion.div
                         key={idx}
                         layout
@@ -172,6 +205,27 @@ const Showcase = () => {
                       </motion.div>
                     ))}
                   </div>
+
+                  {/* See More Certificates Button */}
+                  {certifications.length > 6 && (
+                    <motion.div 
+                      layout
+                      className="mt-12 flex justify-start"
+                    >
+                      <button
+                        onClick={() => setShowAllCertificates(!showAllCertificates)}
+                        className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-accent/20 hover:border-accent/50 transition-all duration-300 font-bold text-sm tracking-widest uppercase"
+                      >
+                        {showAllCertificates ? 'See Less' : 'See More'}
+                        <motion.div
+                          animate={{ rotate: showAllCertificates ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <ChevronDown size={18} />
+                        </motion.div>
+                      </button>
+                    </motion.div>
+                  )}
                 </div>
 
                 {/* Achievements Section */}
@@ -259,9 +313,12 @@ const Showcase = () => {
                 className="max-w-5xl mx-auto"
               >
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                  {skills.flatMap(s => s.items).map((skill, idx) => (
+                  {displayedSkills.map((skill, idx) => (
                     <motion.div
                       key={idx}
+                      layout
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       whileHover={{ y: -5, scale: 1.05 }}
                       className="p-6 rounded-[2rem] glass border border-white/5 flex flex-col items-center justify-center gap-4 group transition-all duration-500 hover:border-secondary/30"
                     >
@@ -272,6 +329,27 @@ const Showcase = () => {
                     </motion.div>
                   ))}
                 </div>
+
+                {/* See More Skills Button */}
+                {flattenedSkills.length > 12 && (
+                  <motion.div 
+                    layout
+                    className="mt-12 flex justify-start"
+                  >
+                    <button
+                      onClick={() => setShowAllSkills(!showAllSkills)}
+                      className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 font-bold text-sm tracking-widest uppercase"
+                    >
+                      {showAllSkills ? 'See Less' : 'See More'}
+                      <motion.div
+                        animate={{ rotate: showAllSkills ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronDown size={18} />
+                      </motion.div>
+                    </button>
+                  </motion.div>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
