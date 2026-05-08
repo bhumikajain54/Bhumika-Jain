@@ -1,14 +1,35 @@
 import React from 'react';
 import resumePDF from '../assets/Bhumika.pdf';
+import profileImg from '../assets/bhumika.jpeg';
 import { motion } from 'framer-motion';
-import { personalDetails, projects } from '../data';
+import { personalDetails, projects, certifications, experience } from '../data';
 import { Code, Award, Calendar, ExternalLink } from 'lucide-react';
 
 const About = () => {
+  // Calculate years of experience dynamically
+  const startYear = 2023; // From the earliest experience in data.js
+  const currentYear = new Date().getFullYear();
+  const yearsOfExp = currentYear - startYear;
+
   const stats = [
-    { icon: <Code size={24} />, count: "11", label: "TOTAL PROJECTS", sub: "Innovative web solutions crafted" },
-    { icon: <Award size={24} />, count: "7", label: "CERTIFICATES", sub: "Professional skills validated" },
-    { icon: <Calendar size={24} />, count: "3", label: "YEARS OF EXPERIENCE", sub: "Continuous learning journey" },
+    { 
+      icon: <Code size={24} />, 
+      count: projects.length.toString(), 
+      label: "TOTAL PROJECTS", 
+      sub: "Innovative web solutions crafted" 
+    },
+    { 
+      icon: <Award size={24} />, 
+      count: certifications.length.toString(), 
+      label: "CERTIFICATES", 
+      sub: "Professional skills validated" 
+    },
+    { 
+      icon: <Calendar size={24} />, 
+      count: yearsOfExp.toString() + "+", 
+      label: "YEARS OF EXPERIENCE", 
+      sub: "Continuous learning journey" 
+    },
   ];
 
   return (
@@ -65,14 +86,38 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-secondary/20 relative z-10 glass">
-                <div className="w-full h-full bg-gradient-to-tr from-secondary/20 to-primary flex items-center justify-center">
-                  <div className="text-6xl font-black text-white/10 select-none">BJ</div>
+            <div className="relative group">
+              {/* Animated Glow Rings */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-secondary/50 via-accent/50 to-secondary/50 rounded-full blur-2xl opacity-20 group-hover:opacity-50 transition-opacity duration-700 animate-pulse" />
+              
+              {/* Rotating Border Ring */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-secondary via-transparent to-accent rounded-full animate-spin-slow opacity-70 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/20 relative z-10 glass shadow-[0_0_50px_rgba(112,66,248,0.2)]">
+                <div className="w-full h-full flex items-center justify-center p-1 bg-primary/40 backdrop-blur-sm">
+                  <img 
+                    src={profileImg} 
+                    alt="Bhumika Jain" 
+                    className="w-full h-full rounded-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-110 contrast-105"
+                  />
                 </div>
               </div>
-              {/* Glow effects around profile */}
-              <div className="absolute inset-0 bg-secondary/30 rounded-full blur-[60px] -z-10 animate-pulse" />
+
+              {/* Floating Decorative Elements */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 -right-4 w-12 h-12 bg-secondary/20 backdrop-blur-md rounded-2xl border border-secondary/30 flex items-center justify-center text-secondary z-20"
+              >
+                <Award size={20} />
+              </motion.div>
+              <motion.div 
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -bottom-4 -left-4 w-10 h-10 bg-accent/20 backdrop-blur-md rounded-xl border border-accent/30 flex items-center justify-center text-accent z-20"
+              >
+                <Code size={18} />
+              </motion.div>
             </div>
           </motion.div>
         </div>
