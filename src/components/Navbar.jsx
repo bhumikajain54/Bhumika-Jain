@@ -10,13 +10,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show navbar after scrolling 80% of the screen height (past the Welcome section)
-      const welcomeHeight = window.innerHeight * 0.8;
+      // Show navbar earlier (after 30% of welcome section)
+      const welcomeHeight = window.innerHeight * 0.1;
       setIsVisible(window.scrollY > welcomeHeight);
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial scroll position
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,10 +35,10 @@ const Navbar = () => {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
-          transition={{ 
+          transition={{
             type: 'spring',
-            stiffness: 100,
-            damping: 20,
+            stiffness: 200,
+            damping: 25,
             mass: 1
           }}
           className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-primary/40 backdrop-blur-xl py-4 border-b border-white/5 shadow-2xl' : 'bg-transparent py-6'}`}
