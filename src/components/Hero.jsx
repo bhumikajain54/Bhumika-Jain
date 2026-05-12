@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import heroGraphic from '../assets/hero-graphic.png';
 
 const Hero = () => {
-  const techStack = ['Java', 'Spring Boot', 'React', 'Javascript', 'MySQL', 'Tailwind'];
+  const techStack = ['Java', 'Spring Boot', 'Angular', 'React', 'Javascript', 'MySQL'];
 
   return (
     <section id="hero" className="min-h-screen flex items-center relative overflow-hidden pt-20">
@@ -16,14 +16,6 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-semibold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full border border-secondary/20 backdrop-blur-md"
-          >
-            <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-            Ready to innovate
-          </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-black mb-4 leading-[1.1]">
             <span className="block text-white">Full Stack</span>
@@ -31,7 +23,7 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-6">
-            Network & <span className="text-secondary">Telecom |</span>
+            Enterprise Solutions & <span className="text-secondary">Backend Architecture |</span>
           </h2>
 
           <p className="max-w-lg text-lg text-slate-400 mb-10 leading-relaxed">
@@ -47,7 +39,7 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-6 mb-12">
-            <a href="#projects" className="btn-primary flex items-center group">
+            <a href="#portfolio" className="btn-primary flex items-center group">
               Projects
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </a>

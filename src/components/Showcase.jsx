@@ -7,6 +7,7 @@ import { FaGithub } from 'react-icons/fa';
 const Showcase = () => {
   const [activeTab, setActiveTab] = useState('projects');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const [showAllSkills, setShowAllSkills] = useState(false);
@@ -42,7 +43,7 @@ const Showcase = () => {
             transition={{ delay: 0.1 }}
             className="max-w-2xl mx-auto text-slate-400 text-lg leading-relaxed"
           >
-            Explore my journey through projects, certifications, and technical expertise. Each section represents a milestone in my continuous learning path.
+            Explore a curated collection of enterprise-grade projects, industry-standard certifications, and a deep-dive into my Java-centric tech stack.
           </motion.p>
         </div>
 
@@ -165,43 +166,56 @@ const Showcase = () => {
                 {/* Certifications Section */}
                 <div>
                   <div className="flex items-center gap-4 mb-10">
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20">
-                      <Award size={20} />
+                    <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20 shadow-[0_0_20px_rgba(255,46,115,0.1)]">
+                      <Shield size={24} />
                     </div>
-                    <h3 className="text-2xl font-bold text-white tracking-tight">Professional Certifications</h3>
+                    <h3 className="text-3xl font-black text-white tracking-tight">Professional Certifications</h3>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {displayedCertificates.map((cert, idx) => (
                       <motion.div
                         key={idx}
                         layout
                         initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
                         transition={{ delay: idx * 0.05 }}
-                        className="group rounded-[2rem] glass border border-white/5 hover:border-accent/30 transition-all duration-500 overflow-hidden card-hover"
+                        onClick={() => setSelectedCertificate(cert)}
+                        className="group cursor-pointer rounded-[2.5rem] bg-[#0A0A0B] border border-white/5 hover:border-accent/30 transition-all duration-500 overflow-hidden shadow-2xl relative"
                       >
+                        {/* Certificate Image Container */}
                         <div className="aspect-[4/3] relative overflow-hidden bg-white/5">
                           <img 
                             src={cert.image} 
                             alt={cert.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60" />
-                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                             <div className="w-12 h-12 rounded-full bg-accent/20 backdrop-blur-md border border-accent/40 flex items-center justify-center text-accent">
-                               <Award size={24} />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent opacity-80" />
+                          
+                          {/* Hover Overlay Icon */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
+                             <div className="w-14 h-14 rounded-full bg-accent/20 backdrop-blur-xl border border-accent/40 flex items-center justify-center text-accent shadow-[0_0_30px_rgba(255,46,115,0.3)]">
+                               <Award size={28} />
                              </div>
                           </div>
                         </div>
 
-                        <div className="p-6 relative">
-                          <h4 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-accent transition-colors">{cert.title}</h4>
-                          <div className="flex items-center text-[10px] font-bold tracking-widest text-slate-500 uppercase">
-                            <CheckCircle size={12} className="mr-2 text-accent" />
-                            Verified Certificate
+                        {/* Certificate Info Footer */}
+                        <div className="p-8 bg-[#0A0A0B]">
+                          <h4 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-accent transition-colors">{cert.title}</h4>
+                          <div className="flex items-center gap-2">
+                            <div className="w-4 h-4 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
+                              <Shield size={10} className="text-accent" />
+                            </div>
+                            <span className="text-[10px] font-black tracking-[0.2em] text-accent/80 uppercase">
+                              Verified Certificate
+                            </span>
                           </div>
                         </div>
+
+                        {/* Subtle Border Glow */}
+                        <div className="absolute inset-0 border border-white/5 rounded-[2.5rem] pointer-events-none group-hover:border-accent/20 transition-colors" />
                       </motion.div>
                     ))}
                   </div>
@@ -481,6 +495,90 @@ const Showcase = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Certificate Details Modal */}
+      <AnimatePresence>
+        {selectedCertificate && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedCertificate(null)}
+              className="absolute inset-0 bg-primary/90 backdrop-blur-2xl"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="w-full max-w-5xl bg-[#0A0A0B] rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden relative z-10"
+            >
+              {/* Modal Header */}
+              <div className="p-8 flex justify-between items-center bg-white/5 border-b border-white/10">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20">
+                    <Award size={24} />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-white leading-tight">{selectedCertificate.title}</h2>
+                    <span className="text-[10px] font-black tracking-widest text-accent uppercase flex items-center gap-2 mt-1">
+                      <Shield size={12} /> Professional Certification
+                    </span>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setSelectedCertificate(null)}
+                  className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-red-500/20 hover:text-red-500 transition-all border border-white/10"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Modal Content - Full Certificate Image */}
+              <div className="p-8 md:p-12 overflow-y-auto max-h-[70vh] custom-scrollbar">
+                <div className="rounded-2xl overflow-hidden border border-white/5 shadow-2xl group relative">
+                  <img 
+                    src={selectedCertificate.image} 
+                    alt={selectedCertificate.title}
+                    className="w-full h-auto object-contain"
+                  />
+                  <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] pointer-events-none" />
+                </div>
+                
+                <div className="mt-12 grid md:grid-cols-2 gap-8">
+                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
+                    <h4 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                      <CheckCircle size={18} className="text-accent" /> 
+                      Authentication Details
+                    </h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      This certificate verifies technical proficiency in {selectedCertificate.title}. Issued after successful completion of all required modules and assessments.
+                    </p>
+                  </div>
+                  
+                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5 flex flex-col justify-center items-center text-center">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">Verification Status</span>
+                    <div className="px-6 py-3 rounded-2xl bg-accent/20 text-accent font-black tracking-widest uppercase border border-accent/30 shadow-[0_0_20px_rgba(255,46,115,0.1)]">
+                      Fully Verified
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Modal Footer */}
+              <div className="p-8 bg-white/5 border-t border-white/10 flex justify-end">
+                <button 
+                  onClick={() => setSelectedCertificate(null)}
+                  className="px-8 py-4 rounded-2xl bg-white/5 text-white font-bold border border-white/10 hover:bg-white/10 transition-all"
+                >
+                  Close View
+                </button>
               </div>
             </motion.div>
           </div>

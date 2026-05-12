@@ -16,19 +16,19 @@ const About = () => {
       icon: <Code size={24} />, 
       count: projects.length.toString(), 
       label: "TOTAL PROJECTS", 
-      sub: "Innovative web solutions crafted" 
+      sub: "Robust full-stack applications" 
     },
     { 
       icon: <Award size={24} />, 
       count: certifications.length.toString(), 
       label: "CERTIFICATES", 
-      sub: "Professional skills validated" 
+      sub: "Enterprise technologies validated" 
     },
     { 
       icon: <Calendar size={24} />, 
       count: yearsOfExp.toString() + "+", 
       label: "YEARS OF EXPERIENCE", 
-      sub: "Continuous learning journey" 
+      sub: "Spring ecosystem mastery" 
     },
   ];
 
@@ -52,7 +52,7 @@ const About = () => {
             className="text-slate-500 font-medium tracking-widest text-sm flex items-center justify-center gap-2"
           >
             <span className="w-4 h-[1px] bg-secondary" />
-            TRANSFORMING IDEAS INTO DIGITAL EXPERIENCES
+            ARCHITECTING SCALABLE ENTERPRISE JAVA SOLUTIONS
             <span className="w-4 h-[1px] bg-secondary" />
           </motion.p>
         </div>
@@ -73,7 +73,7 @@ const About = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href={resumePDF} download="Bhumika_Jain_CV.pdf" className="btn-primary">Download CV</a>
-              <a href="#projects" className="btn-outline flex items-center gap-2">
+              <a href="#portfolio" className="btn-outline flex items-center gap-2">
                 View Projects <ExternalLink size={16} />
               </a>
             </div>

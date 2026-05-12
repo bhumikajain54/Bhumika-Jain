@@ -33,15 +33,15 @@ const Contact = () => {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Form & Socials */}
-          <div className="lg:col-span-5 space-y-10">
+        <div className="grid lg:grid-cols-12 gap-12 items-stretch">
+          {/* Left Column: Form */}
+          <div className="lg:col-span-5 flex flex-col">
             {/* Contact Form Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-10 rounded-[3rem] glass-premium border border-white/5 relative overflow-hidden"
+              className="p-10 rounded-[3rem] glass-premium border border-white/5 relative overflow-hidden h-full flex flex-col"
             >
               <div className="flex items-center justify-between mb-10">
                 <div>
@@ -77,6 +77,17 @@ const Contact = () => {
                 </div>
 
                 <div className="relative group">
+                  <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-secondary transition-colors">
+                    <Phone size={18} />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Your Phone Number"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-16 py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
+                  />
+                </div>
+
+                <div className="relative group">
                   <div className="absolute left-6 top-6 text-slate-500 group-focus-within:text-secondary transition-colors">
                     <MessageSquare size={18} />
                   </div>
@@ -98,44 +109,6 @@ const Contact = () => {
               </form>
             </motion.div>
 
-            {/* Social Grid Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="p-10 rounded-[3rem] glass-premium border border-white/5"
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-white/10" />
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Connect With Me</span>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/10 to-white/10" />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { label: "Let's Connect", sub: "on LinkedIn", icon: <FaLinkedin className="text-blue-500" />, href: personalDetails.linkedin, textColor: "text-blue-500" },
-                  { label: "Instagram", sub: "@yovexaprime", icon: <FaInstagram className="text-pink-500" />, href: personalDetails.Instagram, textColor: "text-pink-500" },
-                  { label: "GitHub", sub: "@bhumikajain54", icon: <FaGithub className="text-white" />, href: personalDetails.github, textColor: "text-white" },
-                ].map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-5 rounded-3xl bg-primary-light/30 border border-white/5 hover:border-secondary/50 transition-all group flex items-center gap-5 hover:bg-white/5 shadow-lg"
-                  >
-                    <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                      {social.icon}
-                    </div>
-                    <div>
-                      <p className={`text-sm font-bold ${social.textColor} group-hover:brightness-125 transition-all`}>{social.label}</p>
-                      {social.sub && <p className="text-[10px] text-slate-500 mt-1 uppercase tracking-widest">{social.sub}</p>}
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </motion.div>
           </div>
 
           {/* Right Column: Comments Mockup */}
@@ -171,10 +144,20 @@ const Contact = () => {
                   </div>
                   <div className="space-y-4">
                     <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1">Profile Photo (optional)</label>
-                    <div className="w-full border-2 border-dashed border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center gap-3 hover:border-secondary/30 transition-all cursor-pointer group">
-                      <Share2 size={24} className="text-slate-600 group-hover:text-secondary transition-colors" />
-                      <span className="text-xs font-bold text-slate-500">Choose Profile Photo</span>
-                      <span className="text-[8px] text-slate-700 uppercase tracking-wider">Max file size: 5mb</span>
+                    <div className="w-full relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 to-purple-600/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                      <div className="relative w-full border border-white/10 rounded-2xl p-5 flex items-center gap-6 hover:border-secondary/30 transition-all cursor-pointer bg-white/[0.02] hover:bg-white/[0.04]">
+                        <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:text-secondary group-hover:bg-secondary/10 transition-all border border-white/5">
+                          <Share2 size={22} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm font-bold text-white mb-1">Click to upload photo</p>
+                          <p className="text-[10px] text-slate-500 uppercase tracking-wider">PNG, JPG or WEBP (Max 5MB)</p>
+                        </div>
+                        <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-slate-600 group-hover:border-secondary/30 group-hover:text-secondary transition-all">
+                          <Send size={14} className="rotate-[-45deg] group-hover:rotate-0 transition-transform duration-500" />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -184,21 +167,7 @@ const Contact = () => {
                   </button>
                 </div>
 
-                {/* Sample Comment */}
-                <div className="pt-10 border-t border-white/5">
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-secondary to-purple-600 flex items-center justify-center font-bold text-white border-2 border-white/10">
-                      BJ
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-sm font-bold text-white">Bhumika Jain</h4>
-                        <span className="text-[10px] text-slate-600 font-bold">Just now</span>
-                      </div>
-                      <p className="text-sm text-slate-400 leading-relaxed">Excited to collaborate on your next big project! Reach out today.</p>
-                    </div>
-                  </div>
-                </div>
+
               </div>
 
               {/* Background Decorative Element */}
@@ -206,6 +175,122 @@ const Contact = () => {
             </motion.div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="mt-12 p-8 md:p-12 rounded-[3rem] glass-premium border border-white/5 relative overflow-hidden"
+        >
+          <div className="flex items-center gap-4 mb-10">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary/20 to-secondary/20" />
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em]">Connect & Reach Out</span>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-secondary/20 to-secondary/20" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { 
+                label: "Email Addresses", 
+                icon: <Mail className="text-cyan-500" />, 
+                bgColor: "bg-cyan-500/10", 
+                borderColor: "hover:border-cyan-500/50",
+                links: [
+                  { val: personalDetails.email, href: `mailto:${personalDetails.email}` },
+                  { val: personalDetails.email2, href: `mailto:${personalDetails.email2}` }
+                ]
+              },
+              { 
+                label: "Phone Numbers", 
+                icon: <Phone className="text-green-500" />, 
+                bgColor: "bg-green-500/10", 
+                borderColor: "hover:border-green-500/50",
+                links: [
+                  { val: personalDetails.phone, href: `tel:${personalDetails.phone.replace(/[-\s]/g, '')}` },
+                  { val: personalDetails.phone2, href: `tel:${personalDetails.phone2.replace(/[-\s]/g, '')}` }
+                ]
+              },
+              { 
+                label: "Location", 
+                sub: personalDetails.location, 
+                icon: <MapPin className="text-red-500" />, 
+                href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalDetails.location)}`, 
+                bgColor: "bg-red-500/10", 
+                borderColor: "hover:border-red-500/50" 
+              },
+              { 
+                label: "LinkedIn", 
+                sub: "Professional Profile", 
+                icon: <FaLinkedin className="text-blue-500" />, 
+                href: personalDetails.linkedin, 
+                bgColor: "bg-blue-500/10", 
+                borderColor: "hover:border-blue-500/50" 
+              },
+              { 
+                label: "Instagram", 
+                sub: "@yovexaprime", 
+                icon: <FaInstagram className="text-pink-500" />, 
+                href: personalDetails.Instagram, 
+                bgColor: "bg-pink-500/10", 
+                borderColor: "hover:border-pink-500/50" 
+              },
+              { 
+                label: "GitHub", 
+                sub: "@bhumikajain54", 
+                icon: <FaGithub className="text-white" />, 
+                href: personalDetails.github, 
+                bgColor: "bg-white/10", 
+                borderColor: "hover:border-white/50" 
+              },
+            ].map((social, i) => (
+              social.links ? (
+                <div
+                  key={i}
+                  className={`p-6 rounded-3xl bg-white/[0.03] border border-white/5 ${social.borderColor} transition-all duration-300 group flex items-start gap-5 hover:bg-white/[0.06] shadow-xl relative overflow-hidden`}
+                >
+                  <div className={`w-12 h-12 rounded-2xl ${social.bgColor} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300 relative z-10 shrink-0`}>
+                    {social.icon}
+                  </div>
+                  <div className="min-w-0 relative z-10 flex-1">
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">{social.label}</p>
+                    <div className="space-y-1">
+                      {social.links.map((link, idx) => (
+                        <a 
+                          key={idx} 
+                          href={link.href} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="block text-sm font-medium text-white hover:text-secondary transition-colors truncate"
+                        >
+                          {link.val}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div className={`absolute top-0 right-0 w-24 h-24 ${social.bgColor} blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                </div>
+              ) : (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-6 rounded-3xl bg-white/[0.03] border border-white/5 ${social.borderColor} transition-all duration-300 group flex items-center gap-5 hover:bg-white/[0.06] shadow-xl relative overflow-hidden`}
+                >
+                  <div className={`w-12 h-12 rounded-2xl ${social.bgColor} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300 relative z-10 shrink-0`}>
+                    {social.icon}
+                  </div>
+                  <div className="min-w-0 relative z-10">
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{social.label}</p>
+                    <p className="text-sm font-medium text-white truncate group-hover:text-secondary transition-colors">{social.sub}</p>
+                  </div>
+                  <div className={`absolute top-0 right-0 w-24 h-24 ${social.bgColor} blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                </a>
+              )
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

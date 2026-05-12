@@ -8,12 +8,19 @@
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-primary text-slate-300 font-body antialiased;
     background-image: radial-gradient(circle at 50% -20%, #2a155c 0%, #030014 60%);
     background-attachment: fixed;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading text-white;
   }
 }
@@ -22,7 +29,7 @@
   .glass {
     @apply bg-[#030014]/30 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
-  
+
   .glow {
     box-shadow: 0 0 20px rgba(112, 66, 248, 0.4);
   }
@@ -30,15 +37,15 @@
   .glow-text {
     text-shadow: 0 0 10px rgba(112, 66, 248, 0.8);
   }
-  
+
   .section-padding {
     @apply py-20 px-6 md:px-12 lg:px-24;
   }
-  
+
   .btn-primary {
     @apply bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-secondary/20 hover:shadow-secondary/40;
   }
-  
+
   .btn-outline {
     @apply border border-secondary/50 text-white hover:bg-secondary/10 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 backdrop-blur-sm;
   }
@@ -79,13 +86,25 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-float {

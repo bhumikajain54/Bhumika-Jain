@@ -11,13 +11,13 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-12">
           {/* Copyright Info */}
           <div className="flex flex-col items-center gap-4 text-center">
-            <h3 className="text-2xl font-black gradient-text">BJ</h3>
+            <div className="space-y-1">
+              <h3 className="text-2xl font-black gradient-text">BJ</h3>
+              <p className="text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">Full Stack Java Developer</p>
+            </div>
             <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">
               © {currentYear} {personalDetails.name}. All Rights Reserved.
             </p>
-            <div className="flex items-center text-[10px] text-slate-600 font-bold uppercase tracking-widest">
-              Crafted with <Heart size={10} className="mx-2 text-red-500/60 fill-red-500/20" /> in India
-            </div>
           </div>
         </div>
       </div>

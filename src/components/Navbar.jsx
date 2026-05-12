@@ -48,9 +48,11 @@ const Navbar = () => {
               href="#"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold font-heading gradient-text"
+              className="flex items-center gap-3"
             >
-              BJ
+              <span className="text-2xl font-bold font-heading gradient-text">BJ</span>
+              <div className="hidden lg:block w-[1px] h-4 bg-white/10" />
+              <span className="hidden lg:block text-[9px] font-black tracking-[0.2em] text-slate-500 uppercase">Full Stack Java Developer</span>
             </motion.a>
 
             {/* Desktop Links */}
