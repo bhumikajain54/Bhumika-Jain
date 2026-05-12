@@ -142,8 +142,8 @@ export const projects = [
       "Implemented secure user authentication UI components",
       "Created a responsive and mobile-friendly user experience"
     ],
-    github: "https://github.com/bhuvneshindoriya/zigcab_admin_intern/tree/bhumika_dev",
-    demo: "https://github.com/bhuvneshindoriya/zigcab_admin_intern/tree/bhumika_dev",
+    github: "https://github.com/bhumikajain54/zigcab_admin_intern-bhumika",
+    demo: "https://zigcab-admin-intern-bhumika.vercel.app/",
     image: "/project-images/zigcab.png"
   },
   {
