@@ -90,8 +90,8 @@ export const projects = [
       "Job posting and management portal",
       "Admin analytics and reporting dashboard"
     ],
-    github: "#",
-    demo: "https://jobsahi.netlify.app/",
+    github: "https://github.com/bhumikajain54/Brightorial",
+    demo: "https://jobsahi.com/",
     image: "/project-images/jobsahi.png"
   },
   {
