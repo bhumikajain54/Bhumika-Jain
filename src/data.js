@@ -111,10 +111,10 @@ export const projects = [
     title: "Insurance MIS (Management Information System)",
     tech: ["Spring Boot", "Angular", "MySQL"],
     features: [
-      "Scalable data management for organizational insights",
-      "Automated reporting and data visualization",
-      "Optimized query performance for large datasets",
-      "Centralized information repository"
+      "Dynamic policy management and tracking system",
+      "Automated claims processing and status updates",
+      "Interactive data visualization for insurance analytics",
+      "Role-based access control for secure data handling"
     ],
     github: "https://github.com/bhumikajain54/MIS-Insurance",
     demo: "#",
@@ -124,10 +124,10 @@ export const projects = [
     title: "Full-Stack MIS (Management Information System)",
     tech: ["Spring Boot", "Reactjs", "MySQL"],
     features: [
-      "Scalable data management for organizational insights",
-      "Automated reporting and data visualization",
-      "Optimized query performance for large datasets",
-      "Centralized information repository"
+      "Comprehensive invoicing and billing automation",
+      "Real-time financial reporting and tax calculations",
+      "Client and vendor management portal",
+      "PDF generation for invoices and financial statements"
     ],
     github: "https://github.com/bhumikajain54/CODEB",
     demo: "https://misinvoicing.netlify.app",
@@ -293,10 +293,10 @@ export const projects = [
     title: "Old Bhumika Portfolio",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
-      "Professional corporate website showcasing technology services",
-      "Clean, modern design with a focus on visual clarity and user experience",
-      "Dynamic service portfolio with detailed descriptions and case studies",
-      "Responsive layout ensuring optimal viewing across all devices"
+      "Interactive 3D-inspired user interface design",
+      "Custom animation sequences for project highlights",
+      "Integrated contact system and social media links",
+      "Mobile-first responsive architecture"
     ],
     github: "https://github.com/bhumikajain54/Old-Bhumika-Portfolio",
     demo: "https://beautiful-cheesecake-59695c.netlify.app/",
