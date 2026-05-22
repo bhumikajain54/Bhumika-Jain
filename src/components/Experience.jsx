@@ -6,6 +6,15 @@ import { Calendar, Building2, MapPin, Sparkles, Award, ArrowUpRight, X, CheckCir
 const Experience = () => {
   const [selectedExp, setSelectedExp] = useState(null);
 
+  // Calculate years of experience dynamically from experience data
+  const years = experience.map(exp => {
+    const match = exp.period.match(/\b(20\d{2})\b/g);
+    return match ? match.map(Number) : [];
+  }).flat();
+  const startYear = years.length > 0 ? Math.min(...years) : 2024;
+  const currentYear = new Date().getFullYear();
+  const yearsOfExp = currentYear - startYear;
+
   return (
     <section id="experience" className="section-padding relative overflow-hidden bg-[#030014]">
       {/* Refined Background Gradients */}
@@ -58,7 +67,7 @@ const Experience = () => {
              </div>
              <div className="w-[1px] h-10 bg-white/10" />
              <div className="text-right">
-                <div className="text-2xl font-black text-secondary">2+</div>
+                <div className="text-2xl font-black text-secondary">{yearsOfExp}+</div>
                 <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Years Experience</div>
              </div>
           </motion.div>

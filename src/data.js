@@ -71,7 +71,7 @@ export const experience = [
   {
     role: "Java Developer",
     company: "NIT Solution Pvt Ltd",
-    period: "Nov 2023 – Oct 2024",
+    period: "Jan 2024 – Oct 2024",
     description: [
       "Employee Management System",
       "REST APIs with Spring Boot",

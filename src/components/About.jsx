@@ -6,8 +6,12 @@ import { personalDetails, projects, certifications, experience } from '../data';
 import { Code, Award, Calendar, ExternalLink } from 'lucide-react';
 
 const About = () => {
-  // Calculate years of experience dynamically
-  const startYear = 2023; // From the earliest experience in data.js
+  // Calculate years of experience dynamically from experience data
+  const years = experience.map(exp => {
+    const match = exp.period.match(/\b(20\d{2})\b/g);
+    return match ? match.map(Number) : [];
+  }).flat();
+  const startYear = years.length > 0 ? Math.min(...years) : 2024;
   const currentYear = new Date().getFullYear();
   const yearsOfExp = currentYear - startYear;
 
