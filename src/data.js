@@ -82,6 +82,19 @@ export const experience = [
 
 export const projects = [
   {
+    title: "Bhumika Jain Portfolio (React)",
+    tech: ["React.js", "Tailwind CSS", "Framer Motion", "Lucide React"],
+    features: [
+      "Modern dark-themed professional developer portfolio",
+      "Dynamic calculations for years of experience and project stats",
+      "Sleek glassmorphism card designs with hover micro-animations",
+      "Fully responsive layout optimized for all device sizes"
+    ],
+    github: "https://github.com/bhumikajain54/Bhumika-Jain",
+    demo: "https://bhumika-jain.vercel.app/",
+    image: "/project-images/bhumika_portfolio_react.png"
+  },
+  {
     title: "JobSahi Recruiter Dashboard",
     tech: ["React.js", "Tailwind CSS", "PHP", "MySQL"],
     features: [
