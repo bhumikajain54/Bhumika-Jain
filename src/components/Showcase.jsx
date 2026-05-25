@@ -459,14 +459,16 @@ const Showcase = () => {
                       >
                         Live Demo <ExternalLink size={18} />
                       </a>
-                      <a 
-                        href={selectedProject.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex-1 min-w-[160px] h-14 rounded-2xl bg-white/5 text-white font-bold border border-white/10 flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
-                      >
-                        Source Code <FaGithub size={18} />
-                      </a>
+                      {selectedProject.github && (
+                        <a 
+                          href={selectedProject.github} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex-1 min-w-[160px] h-14 rounded-2xl bg-white/5 text-white font-bold border border-white/10 flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
+                        >
+                          Source Code <FaGithub size={18} />
+                        </a>
+                      )}
                     </div>
                   </div>
 

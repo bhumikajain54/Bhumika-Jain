@@ -95,7 +95,7 @@ export const projects = [
     image: "/project-images/bhumika_portfolio_react.png"
   },
   {
-    title: "JobSahi Recruiter Dashboard",
+    title: "JobSahi Dashboard",
     tech: ["React.js", "Tailwind CSS", "PHP", "MySQL"],
     features: [
       "Streamlined hiring process for recruiters",
@@ -103,7 +103,6 @@ export const projects = [
       "Job posting and management portal",
       "Admin analytics and reporting dashboard"
     ],
-    github: "https://github.com/bhumikajain54/Brightorial",
     demo: "https://jobsahi.com/",
     image: "/project-images/jobsahi.png"
   },
@@ -298,7 +297,6 @@ export const projects = [
       "Dynamic service portfolio with detailed descriptions and case studies",
       "Responsive layout ensuring optimal viewing across all devices"
     ],
-    github: "https://github.com/bhumikajain54/webbiez-infotech",
     demo: "https://webbiez-infotech.netlify.app/",
     image: "/project-images/webbiez.png"
   },
