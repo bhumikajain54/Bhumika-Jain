@@ -18,7 +18,7 @@ function App() {
   });
 
   return (
-    <div className="bg-primary selection:bg-secondary/30 selection:text-white">
+    <div className="bg-primary selection:bg-secondary/30 selection:text-white overflow-x-hidden w-full min-h-screen">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-secondary origin-left z-[60]"

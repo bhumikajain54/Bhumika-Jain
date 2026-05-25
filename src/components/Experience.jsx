@@ -38,7 +38,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-6xl md:text-8xl font-black mb-8 leading-none tracking-tighter text-white"
+              className="text-5xl sm:text-6xl lg:text-8xl font-black mb-8 leading-none tracking-tighter text-white break-words"
             >
               My <span className="gradient-text">Experience</span>
             </motion.h2>

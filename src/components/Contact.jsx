@@ -60,7 +60,7 @@ const Contact = () => {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-16 py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
                   />
                 </div>
 
@@ -71,7 +71,7 @@ const Contact = () => {
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-16 py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
                   />
                 </div>
 
@@ -82,7 +82,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     placeholder="Your Phone Number"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-16 py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
                   />
                 </div>
 
@@ -93,7 +93,7 @@ const Contact = () => {
                   <textarea
                     rows="4"
                     placeholder="Your Message"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-16 py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 resize-none focus:bg-white/[0.08]"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 resize-none focus:bg-white/[0.08]"
                   />
                 </div>
 
@@ -195,7 +195,7 @@ const Contact = () => {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block text-sm font-medium text-white hover:text-secondary transition-colors truncate"
+                          className="block text-sm font-medium text-white hover:text-secondary transition-colors break-all"
                         >
                           {link.val}
                         </a>
@@ -217,7 +217,7 @@ const Contact = () => {
                   </div>
                   <div className="min-w-0 relative z-10">
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{social.label}</p>
-                    <p className="text-sm font-medium text-white truncate group-hover:text-secondary transition-colors">{social.sub}</p>
+                    <p className="text-sm font-medium text-white break-all group-hover:text-secondary transition-colors">{social.sub}</p>
                   </div>
                   <div className={`absolute top-0 right-0 w-24 h-24 ${social.bgColor} blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                 </a>

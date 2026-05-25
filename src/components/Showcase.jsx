@@ -28,7 +28,7 @@ const Showcase = () => {
     <section id="portfolio" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto z-10 relative">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -36,7 +36,7 @@ const Showcase = () => {
           >
             Portfolio <span className="gradient-text glow-text">Showcase</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -48,13 +48,13 @@ const Showcase = () => {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex justify-center mb-16">
-          <div className="flex p-1 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
+        <div className="flex justify-center mb-12 md:mb-16">
+          <div className="grid grid-cols-2 md:flex p-1 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl w-full md:w-auto gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold tracking-widest uppercase transition-all duration-500 relative ${
+                className={`flex items-center justify-center gap-2 px-2 md:px-6 py-3 md:py-3 rounded-xl text-[10px] md:text-sm font-bold tracking-widest uppercase transition-all duration-500 relative ${
                   activeTab === tab.id ? 'text-white' : 'text-slate-500 hover:text-slate-300'
                 }`}
               >
@@ -95,8 +95,8 @@ const Showcase = () => {
                     >
                       <div className="aspect-video relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10 opacity-60" />
-                        <img 
-                          src={project.image} 
+                        <img
+                          src={project.image}
                           alt={project.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-40 group-hover:opacity-60"
                         />
@@ -108,18 +108,18 @@ const Showcase = () => {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="p-8 relative">
                         <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">{project.title}</h3>
                         <p className="text-sm text-slate-400 line-clamp-2 mb-6 leading-relaxed">
                           {project.features[0]}
                         </p>
-                        
+
                         <div className="flex items-center justify-between pt-6 border-t border-white/5">
                           <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center text-xs font-bold text-slate-500 hover:text-secondary transition-colors">
                             Live Demo <ExternalLink size={14} className="ml-1" />
                           </a>
-                          <button 
+                          <button
                             onClick={() => setSelectedProject(project)}
                             className="px-4 py-2 rounded-xl bg-white/5 text-white text-xs font-bold border border-white/10 hover:bg-secondary hover:border-secondary transition-all"
                           >
@@ -133,7 +133,7 @@ const Showcase = () => {
 
                 {/* See More Button */}
                 {projects.length > 6 && (
-                  <motion.div 
+                  <motion.div
                     layout
                     className="mt-12 flex justify-start"
                   >
@@ -171,7 +171,7 @@ const Showcase = () => {
                     </div>
                     <h3 className="text-3xl font-black text-white tracking-tight">Professional Certifications</h3>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {displayedCertificates.map((cert, idx) => (
                       <motion.div
@@ -186,18 +186,18 @@ const Showcase = () => {
                       >
                         {/* Certificate Image Container */}
                         <div className="aspect-[4/3] relative overflow-hidden bg-white/5">
-                          <img 
-                            src={cert.image} 
+                          <img
+                            src={cert.image}
                             alt={cert.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent opacity-80" />
-                          
+
                           {/* Hover Overlay Icon */}
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-                             <div className="w-14 h-14 rounded-full bg-accent/20 backdrop-blur-xl border border-accent/40 flex items-center justify-center text-accent shadow-[0_0_30px_rgba(255,46,115,0.3)]">
-                               <Award size={28} />
-                             </div>
+                            <div className="w-14 h-14 rounded-full bg-accent/20 backdrop-blur-xl border border-accent/40 flex items-center justify-center text-accent shadow-[0_0_30px_rgba(255,46,115,0.3)]">
+                              <Award size={28} />
+                            </div>
                           </div>
                         </div>
 
@@ -222,7 +222,7 @@ const Showcase = () => {
 
                   {/* See More Certificates Button */}
                   {certifications.length > 6 && (
-                    <motion.div 
+                    <motion.div
                       layout
                       className="mt-12 flex justify-start"
                     >
@@ -250,7 +250,7 @@ const Showcase = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-white tracking-tight">Key Achievements & Honors</h3>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {achievements.map((ach, idx) => (
                       <motion.div
@@ -266,7 +266,7 @@ const Showcase = () => {
                         </div>
                         <h4 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-secondary transition-colors">{ach}</h4>
                         <span className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Honor Award</span>
-                        
+
                         <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-all" />
                       </motion.div>
                     ))}
@@ -296,7 +296,7 @@ const Showcase = () => {
                     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                       <GraduationCap size={100} />
                     </div>
-                    
+
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                       <div className="flex gap-6 items-start">
                         <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20 shrink-0 group-hover:scale-110 transition-transform">
@@ -307,7 +307,7 @@ const Showcase = () => {
                           <p className="text-secondary font-semibold text-lg tracking-wide">{edu.institution}</p>
                         </div>
                       </div>
-                      
+
                       <div className="inline-flex items-center text-xs font-bold text-slate-400 bg-white/5 px-4 py-2 rounded-full border border-white/5 uppercase self-start md:self-center">
                         {edu.period}
                       </div>
@@ -346,7 +346,7 @@ const Showcase = () => {
 
                 {/* See More Skills Button */}
                 {flattenedSkills.length > 12 && (
-                  <motion.div 
+                  <motion.div
                     layout
                     className="mt-12 flex justify-start"
                   >
@@ -374,14 +374,14 @@ const Showcase = () => {
       <AnimatePresence>
         {selectedProject && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProject(null)}
               className="absolute inset-0 bg-primary/80 backdrop-blur-xl"
             />
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -391,16 +391,16 @@ const Showcase = () => {
               {/* Modal Header */}
               <div className="sticky top-0 p-8 flex justify-between items-center bg-primary/20 backdrop-blur-xl border-b border-white/5 z-20">
                 <div className="flex items-center gap-3">
-                   <button 
-                     onClick={() => setSelectedProject(null)}
-                     className="p-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-colors"
-                   >
-                     ← Back
-                   </button>
-                   <div className="h-4 w-[1px] bg-white/10 mx-2" />
-                   <span className="text-xs font-bold tracking-[0.3em] text-slate-500 uppercase">Project Details</span>
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="p-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-colors"
+                  >
+                    ← Back
+                  </button>
+                  <div className="h-4 w-[1px] bg-white/10 mx-2" />
+                  <span className="text-xs font-bold tracking-[0.3em] text-slate-500 uppercase">Project Details</span>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedProject(null)}
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-red-500/20 hover:text-red-500 transition-all"
                 >
@@ -451,18 +451,18 @@ const Showcase = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-4 pt-6">
-                      <a 
-                        href={selectedProject.demo} 
-                        target="_blank" 
+                      <a
+                        href={selectedProject.demo}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 min-w-[160px] h-14 rounded-2xl bg-secondary text-white font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(112,66,248,0.4)] transition-all"
                       >
                         Live Demo <ExternalLink size={18} />
                       </a>
                       {selectedProject.github && (
-                        <a 
-                          href={selectedProject.github} 
-                          target="_blank" 
+                        <a
+                          href={selectedProject.github}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="flex-1 min-w-[160px] h-14 rounded-2xl bg-white/5 text-white font-bold border border-white/10 flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
                         >
@@ -475,11 +475,11 @@ const Showcase = () => {
                   {/* Right Side: Features & Image */}
                   <div className="space-y-12">
                     <div className="aspect-[16/10] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative group">
-                       <img 
-                         src={selectedProject.image} 
-                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
-                       />
-                       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+                      <img
+                        src={selectedProject.image}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                     </div>
 
                     <div>
@@ -489,8 +489,8 @@ const Showcase = () => {
                       <div className="space-y-6">
                         {selectedProject.features.map((feature, i) => (
                           <div key={i} className="flex items-start gap-4 group">
-                             <div className="mt-1 w-2 h-2 rounded-full bg-secondary group-hover:scale-150 transition-all shadow-[0_0_10px_rgba(112,66,248,0.5)] shrink-0" />
-                             <p className="text-slate-300 text-sm leading-relaxed group-hover:text-white transition-colors">{feature}</p>
+                            <div className="mt-1 w-2 h-2 rounded-full bg-secondary group-hover:scale-150 transition-all shadow-[0_0_10px_rgba(112,66,248,0.5)] shrink-0" />
+                            <p className="text-slate-300 text-sm leading-relaxed group-hover:text-white transition-colors">{feature}</p>
                           </div>
                         ))}
                       </div>
@@ -507,14 +507,14 @@ const Showcase = () => {
       <AnimatePresence>
         {selectedCertificate && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedCertificate(null)}
               className="absolute inset-0 bg-primary/90 backdrop-blur-2xl"
             />
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -534,7 +534,7 @@ const Showcase = () => {
                     </span>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedCertificate(null)}
                   className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-red-500/20 hover:text-red-500 transition-all border border-white/10"
                 >
@@ -545,25 +545,25 @@ const Showcase = () => {
               {/* Modal Content - Full Certificate Image */}
               <div className="p-8 md:p-12 overflow-y-auto max-h-[70vh] custom-scrollbar">
                 <div className="rounded-2xl overflow-hidden border border-white/5 shadow-2xl group relative">
-                  <img 
-                    src={selectedCertificate.image} 
+                  <img
+                    src={selectedCertificate.image}
                     alt={selectedCertificate.title}
                     className="w-full h-auto object-contain"
                   />
                   <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] pointer-events-none" />
                 </div>
-                
+
                 <div className="mt-12 grid md:grid-cols-2 gap-8">
                   <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <h4 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                      <CheckCircle size={18} className="text-accent" /> 
+                      <CheckCircle size={18} className="text-accent" />
                       Authentication Details
                     </h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       This certificate verifies technical proficiency in {selectedCertificate.title}. Issued after successful completion of all required modules and assessments.
                     </p>
                   </div>
-                  
+
                   <div className="p-8 rounded-3xl bg-white/5 border border-white/5 flex flex-col justify-center items-center text-center">
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">Verification Status</span>
                     <div className="px-6 py-3 rounded-2xl bg-accent/20 text-accent font-black tracking-widest uppercase border border-accent/30 shadow-[0_0_20px_rgba(255,46,115,0.1)]">
@@ -572,10 +572,10 @@ const Showcase = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Modal Footer */}
               <div className="p-8 bg-white/5 border-t border-white/10 flex justify-end">
-                <button 
+                <button
                   onClick={() => setSelectedCertificate(null)}
                   className="px-8 py-4 rounded-2xl bg-white/5 text-white font-bold border border-white/10 hover:bg-white/10 transition-all"
                 >
