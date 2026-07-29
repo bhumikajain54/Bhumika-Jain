@@ -61,7 +61,7 @@ const Welcome = () => {
             FULL STACK <br />
             <span className="gradient-text glow-text">JAVA DEVELOPER</span>
           </h1>
-          
+
           <p className="text-slate-500 text-sm md:text-lg font-medium tracking-[0.2em] uppercase max-w-lg mx-auto pt-4">
             Building Scalable Enterprise Solutions
           </p>

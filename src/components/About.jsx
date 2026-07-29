@@ -1,6 +1,6 @@
 import React from 'react';
 import resumePDF from '../assets/Bhumika.pdf';
-import profileImg from '../assets/bhumika.jpeg';
+import profileImg from '../assets/profile.jpg';
 import { motion } from 'framer-motion';
 import { personalDetails, projects, certifications, experience } from '../data';
 import { Code, Award, Calendar, ExternalLink } from 'lucide-react';
