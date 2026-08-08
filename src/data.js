@@ -128,7 +128,7 @@ export const projects = [
       "Interactive data visualization for insurance analytics",
       "Role-based access control for secure data handling"
     ],
-    github: "https://github.com/bhumikajain54/MIS-Insurance",
+    github: "https://github.com/bhumikajain54/MIS-Project",
     demo: "#",
     image: "/project-images/insurance_mis.png"
   },
