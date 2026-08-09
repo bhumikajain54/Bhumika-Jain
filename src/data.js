@@ -14,24 +14,36 @@ export const personalDetails = {
 
 export const skills = [
   {
-    category: "Languages",
+    category: "Programming Languages",
     items: ["Java", "PHP", "JavaScript", "TypeScript", "SQL", "HTML5", "CSS3"]
   },
   {
-    category: "Frameworks & Libraries",
-    items: ["Spring Boot", "Angular", "React.js", "Bootstrap", "Tailwind CSS"]
+    category: "Frontend Technologies",
+    items: ["React.js", "Angular", "Tailwind CSS", "Responsive Web Design", "Frontend Optimization", "Axios"]
+  },
+  {
+    category: "Backend Technologies",
+    items: ["Spring Boot", "Hibernate", "JPA", "RESTful APIs", "RESTful Web Services", "Microservices", "MVC Architecture"]
   },
   {
     category: "Databases",
-    items: ["MySQL", "MongoDB", "PostgreSQL", "Schema Design", "Query Optimization"]
+    items: ["MySQL", "Database Design", "Query Optimization"]
   },
   {
-    category: "Web Technologies",
-    items: ["REST API Design", "JWT Authentication", "Microservices Architecture"]
+    category: "Security",
+    items: ["JWT Authentication", "Authentication & Authorization"]
   },
   {
-    category: "Tools",
-    items: ["IntelliJ IDEA", "VS Code", "Postman", "MySQL Workbench", "Git/GitHub", "Maven", "npm"]
+    category: "Tools & Technologies",
+    items: ["Git", "GitHub", "GitHub Actions", "Version Control", "Maven", "Postman", "API Testing", "IntelliJ IDEA", "Visual Studio Code", "MySQL Workbench"]
+  },
+  {
+    category: "Cloud & DevOps",
+    items: ["Docker", "Microsoft Azure"]
+  },
+  {
+    category: "Development Concepts",
+    items: ["CRUD Operations", "Database Integration", "Layered Architecture", "Debugging & Problem Solving", "Clean Code Practices", "SDLC"]
   }
 ];
 
@@ -203,7 +215,7 @@ export const projects = [
       "Modern, responsive UI with smooth animations"
     ],
     github: "https://github.com/bhumikajain54/sanitaryware",
-    demo: "https://singhai-traders.netlify.app/",
+    demo: "https://sanitary-ware-1.vercel.app/",
     image: "/project-images/sanitary_shop.png"
   },
   {
@@ -341,21 +353,43 @@ export const education = [
   {
     degree: "MCA (Master of Computer Applications)",
     institution: "SGSITS College, Indore",
-    period: "2022–2024"
+    period: "2022–2024",
+    location: "Indore, Madhya Pradesh",
+    type: "Post Graduation",
+    highlights: [
+      "Advanced Software Engineering & System Architecture",
+      "Data Structures, Algorithms & Database Systems",
+      "Enterprise Application Development"
+    ]
   },
   {
     degree: "BCA (Bachelor of Computer Applications)",
     institution: "Arihant College, Balaghat",
-    period: "2019–2022"
+    period: "2019–2022",
+    location: "Balaghat, Madhya Pradesh",
+    type: "Graduation",
+    highlights: [
+      "Computer Science & Web Development Fundamentals",
+      "Object-Oriented Programming (OOP) & SQL Databases",
+      "Core Software Development Lifecycle (SDLC)"
+    ]
   },
   {
     degree: "Full Stack Java Development",
     institution: "Itvedant Education",
-    period: "2024–2025"
+    period: "2024–2025",
+    location: "Professional Certification",
+    type: "Specialization",
+    highlights: [
+      "Spring Boot, Hibernate, JPA & Microservices",
+      "React.js & Modern Responsive Frontend Design",
+      "RESTful API Security, JWT & Query Optimization"
+    ]
   }
 ];
 
 export const certifications = [
+  { title: "Master in Full Stack Web Development with Java", image: "/src/assets/17234.jpg" },
   { title: "Full Stack Java Developer", image: "/src/assets/fsdspringboot.jpg" },
   { title: "Core Java Programming", image: "/src/assets/corejava.jpg" },
   { title: "Advanced Web Design", image: "/src/assets/advancedwebdesign.jpg" },
@@ -369,7 +403,8 @@ export const certifications = [
 ];
 
 export const achievements = [
-  "1st Rank – National Hindi Competition",
-  "Cultural Awards (2007–2022)",
-  "Volunteer – HelpAge India"
+  "Built 30+ REST APIs across recruitment, e-commerce, and enterprise applications",
+  "Supported platforms handling 5,000+ registered job seekers and 1,000+ recruiter/applicant records",
+  "Achieved up to 50% reduction in manual workflow efforts through automation",
+  "Improved API performance by up to 25% through database and query optimization"
 ];
