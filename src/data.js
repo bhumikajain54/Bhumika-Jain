@@ -37,45 +37,67 @@ export const skills = [
 
 export const experience = [
   {
-    role: "Freelance Full Stack Developer",
-    company: "Self-employed",
-    period: "Jan 2026 – Present",
+    role: "Full Stack Developer",
+    company: "Freelance",
+    period: "Feb 2026 – Present",
     description: [
-      "Built full-stack applications using Spring Boot, React.js, MySQL",
-      "Developed secure REST APIs",
-      "Client collaboration & deployment"
+      "Built full-stack e-commerce platforms and web applications using Java, Spring Boot, React.js, Tailwind CSS, PHP, and MySQL.",
+      "Developed secure REST APIs, payment & checkout workflows, soft delete features, and admin management portals.",
+      "Optimized backend queries and database operations using NeonDB and MySQL for clients."
     ]
   },
   {
     role: "Software Developer",
-    company: "Brightorial Pvt Ltd",
-    period: "May 2025 – Present",
+    company: "Brightorial Pvt. Ltd.",
+    period: "May 2025 – Feb 2026",
     description: [
-      "JobSahi Admin Dashboard",
-      "React + Tailwind + PHP APIs",
-      "JWT Authentication & RBAC",
-      "Analytics, calendar, notifications",
-      "Database optimization"
+      "Developed backend modules and integrated frontend-backend workflows for JobSahi recruitment platform handling 5,000+ job seekers.",
+      "Developed and integrated 10+ PHP REST APIs for applicant management, interview scheduling, recruiter notifications, and job tracking.",
+      "Built secure backend modules using PHP + MySQL for 1,000+ active recruiter and applicant records.",
+      "Integrated backend APIs with React.js dashboard modules, reducing manual data refresh efforts by 40%.",
+      "Implemented full CRUD operations, advanced search, filtering, analytics modules, and calendar scheduling across 4+ dashboard sections.",
+      "Optimized MySQL queries and API response handling, reducing average API response time by 25%."
+    ]
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Code-B Solutions Pvt. Ltd.",
+    period: "Feb 2025 – Apr 2025",
+    description: [
+      "Built and maintained full-stack web applications and Management Information Systems (MIS) using Spring Boot, React.js, and MySQL.",
+      "Developed comprehensive invoicing and billing automation, real-time financial reporting, and client/vendor management portals.",
+      "Created RESTful APIs and responsive UI components with robust data validation and security standards."
     ]
   },
   {
     role: "IT Developer",
-    company: "Lord’s Mark Insurance",
-    period: "Dec 2024 – Apr 2025",
+    company: "Lord’s Mark Insurance Broking Services Pvt. Ltd.",
+    period: "Dec 2024 – Jan 2025",
     description: [
-      "MIS system using Spring Boot & Angular",
-      "Invoice module (React + MySQL)",
-      "Security: XSS/CSRF protection"
+      "Developed dynamic policy tracking and claims management modules for Insurance Management Information System (MIS).",
+      "Integrated Spring Boot backend APIs with Angular and React frontend interfaces with role-based access control (RBAC).",
+      "Implemented security practices including XSS and CSRF protection for sensitive financial data."
     ]
   },
   {
-    role: "Java Developer",
-    company: "NIT Solution Pvt Ltd",
-    period: "Jan 2024 – Oct 2024",
+    role: "Software Developer",
+    company: "Visom6 Technology Pvt. Ltd.",
+    period: "July 2024 – Oct 2024",
     description: [
-      "Employee Management System",
-      "REST APIs with Spring Boot",
-      "MySQL + Hibernate"
+      "Developed responsive web frontend interfaces and scalable RESTful API services.",
+      "Participated in database schema design, query optimization, and UI performance enhancements.",
+      "Performed API testing and debugging using Postman across GET, POST, PUT, DELETE endpoints."
+    ]
+  },
+  {
+    role: "Junior Java Developer",
+    company: "NIT Solution Pvt. Ltd.",
+    period: "Jan 2024 – Apr 2024",
+    description: [
+      "Designed and developed a complete Employee Management System handling employee records and organizational HR operations.",
+      "Developed scalable backend services using Spring Boot with RESTful API architecture and built 15+ REST APIs.",
+      "Implemented authentication and authorization for secure access management across Admin and Employee modules.",
+      "Integrated Angular frontend with backend APIs and used Hibernate/JPA for database operations, improving response time by 30%."
     ]
   }
 ];
