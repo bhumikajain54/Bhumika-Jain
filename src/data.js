@@ -129,7 +129,7 @@ export const projects = [
       "Role-based access control for secure data handling"
     ],
     github: "https://github.com/bhumikajain54/MIS-Project",
-    demo: "#",
+    demo: "https://mis-project-frontend1.vercel.app/",
     image: "/project-images/insurance_mis.png"
   },
   {
