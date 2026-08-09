@@ -1,234 +1,442 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { personalDetails } from '../data';
-import { Mail, Phone, MapPin, Send, MessageSquare, Share2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, User, MessageSquare, Sparkles, CheckCircle2, ArrowUpRight, Clock, ShieldCheck, Tag, Eye, EyeOff, Lock } from 'lucide-react';
 import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    subject: 'Full-Time Role', 
+    message: '' 
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [showEmails, setShowEmails] = useState(false);
+  const [showPhones, setShowPhones] = useState(false);
+
+  const subjects = [
+    'Full-Time Role',
+    'Freelance Project',
+    'Technical Consultation',
+    'General Inquiry'
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.name && formData.email && formData.message) {
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', email: '', phone: '', subject: 'Full-Time Role', message: '' });
+      }, 4000);
+    }
+  };
+
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-primary min-h-screen flex items-center">
-      {/* Background Decorative Glows */}
-      <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="contact" className="section-padding relative overflow-hidden bg-[#030014] min-h-screen flex items-center">
+      {/* Background Lighting Gradients */}
+      <div className="absolute top-1/4 left-[-10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[160px] pointer-events-none opacity-60 animate-pulse" />
+      <div className="absolute bottom-10 right-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none opacity-50" />
 
       <div className="max-w-7xl mx-auto z-10 relative w-full">
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 sm:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4 backdrop-blur-md"
+          >
+            <Sparkles size={14} className="text-secondary" />
+            <span className="text-[10px] font-black tracking-[0.3em] text-secondary uppercase">Let's Connect</span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 tracking-tight leading-tight"
           >
-            Contact <span className="gradient-text">Me</span>
+            Contact <span className="gradient-text glow-text">Me</span>
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-slate-400 text-lg font-medium max-w-xl mx-auto"
+            className="text-slate-400 text-base sm:text-lg font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Got a question? Send me a message, and I'll get back to you soon.
+            Have a project in mind, a hiring opportunity, or want to discuss full-stack solutions? Send a message or connect directly.
           </motion.p>
         </div>
 
-        <div className="max-w-3xl mx-auto w-full">
-          <div className="flex flex-col">
-            {/* Contact Form Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-10 rounded-[3rem] glass-premium border border-white/5 relative overflow-hidden h-full flex flex-col"
-            >
-              <div className="flex items-center justify-between mb-10">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Get in Touch</h3>
-                  <p className="text-sm text-slate-500">Have something to discuss? Send me a message and let's talk.</p>
+        {/* Unified Equal-Height 2-Column Grid Layout */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch max-w-6xl mx-auto">
+          {/* Left Column: Direct Contact & Social (5 Columns) */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 h-full flex flex-col"
+          >
+            <div className="p-8 sm:p-10 rounded-[2.5rem] glass border border-white/10 relative overflow-hidden shadow-2xl h-full flex flex-col justify-between group">
+              {/* Inner Glow Lighting */}
+              <div className="absolute -top-10 -left-10 w-48 h-48 bg-secondary/15 rounded-full blur-[80px] pointer-events-none group-hover:bg-secondary/25 transition-all" />
+
+              <div className="relative z-10 space-y-6">
+                {/* Header info */}
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-2xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shadow-inner">
+                    <Sparkles size={24} />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-white leading-snug">Let's build something extraordinary.</h3>
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                    Available for full-time roles, freelance projects, and enterprise full-stack development.
+                  </p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400">
-                  <Share2 size={18} />
+
+                {/* Direct Contact Channels */}
+                <div className="space-y-3.5 pt-2">
+                  {/* Email Card (Completely Hidden Text with Reveal Toggle) */}
+                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/40 transition-all duration-300 group/item flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0 group-hover/item:scale-110 transition-transform mt-0.5">
+                      <Mail size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Email Addresses</span>
+                        <button
+                          type="button"
+                          onClick={() => setShowEmails(!showEmails)}
+                          className="text-[10px] font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 uppercase tracking-wider"
+                        >
+                          {showEmails ? <EyeOff size={12} /> : <Eye size={12} />}
+                          <span>{showEmails ? 'HIDE EMAIL' : 'VIEW EMAIL'}</span>
+                        </button>
+                      </div>
+
+                      <AnimatePresence mode="wait">
+                        {showEmails ? (
+                          <motion.div
+                            key="visible-emails"
+                            initial={{ opacity: 0, y: -5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -5 }}
+                            className="space-y-1 pt-0.5"
+                          >
+                            <a href={`mailto:${personalDetails.email}`} className="block text-xs font-bold text-white hover:text-cyan-400 transition-colors truncate">
+                              {personalDetails.email}
+                            </a>
+                            {personalDetails.email2 && (
+                              <a href={`mailto:${personalDetails.email2}`} className="block text-[11px] font-medium text-slate-300 hover:text-cyan-400 transition-colors truncate">
+                                {personalDetails.email2}
+                              </a>
+                            )}
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="hidden-emails"
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 5 }}
+                            onClick={() => setShowEmails(true)}
+                            className="flex items-center justify-between cursor-pointer pt-0.5 group/btn"
+                          >
+                            <span className="text-xs font-semibold text-slate-300 group-hover/btn:text-white transition-colors">
+                              Click to view email channels
+                            </span>
+                            <span className="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-[9px] font-black uppercase flex items-center gap-1">
+                              <Lock size={9} /> Private
+                            </span>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+
+                  {/* Phone Card (Completely Hidden Text with Reveal Toggle) */}
+                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-green-500/40 transition-all duration-300 group/item flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 shrink-0 group-hover/item:scale-110 transition-transform mt-0.5">
+                      <Phone size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Phone / WhatsApp</span>
+                        <button
+                          type="button"
+                          onClick={() => setShowPhones(!showPhones)}
+                          className="text-[10px] font-bold text-green-400 hover:text-green-300 transition-colors flex items-center gap-1 uppercase tracking-wider"
+                        >
+                          {showPhones ? <EyeOff size={12} /> : <Eye size={12} />}
+                          <span>{showPhones ? 'HIDE PHONE' : 'VIEW PHONE'}</span>
+                        </button>
+                      </div>
+
+                      <AnimatePresence mode="wait">
+                        {showPhones ? (
+                          <motion.div
+                            key="visible-phones"
+                            initial={{ opacity: 0, y: -5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -5 }}
+                            className="space-y-1 pt-0.5"
+                          >
+                            <a href={`tel:${personalDetails.phone.replace(/[-\s]/g, '')}`} className="block text-xs font-bold text-white hover:text-green-400 transition-colors">
+                              {personalDetails.phone}
+                            </a>
+                            {personalDetails.phone2 && (
+                              <a href={`tel:${personalDetails.phone2.replace(/[-\s]/g, '')}`} className="block text-[11px] font-medium text-slate-300 hover:text-green-400 transition-colors">
+                                {personalDetails.phone2}
+                              </a>
+                            )}
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="hidden-phones"
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 5 }}
+                            onClick={() => setShowPhones(true)}
+                            className="flex items-center justify-between cursor-pointer pt-0.5 group/btn"
+                          >
+                            <span className="text-xs font-semibold text-slate-300 group-hover/btn:text-white transition-colors">
+                              Click to view phone numbers
+                            </span>
+                            <span className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-[9px] font-black uppercase flex items-center gap-1">
+                              <Lock size={9} /> Private
+                            </span>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+
+                  {/* Location Card */}
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalDetails.location)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-red-500/40 transition-all duration-300 group/item flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-4 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 shrink-0 group-hover/item:scale-110 transition-transform">
+                        <MapPin size={18} />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Location</span>
+                        <span className="text-xs sm:text-sm font-semibold text-white truncate block group-hover/item:text-secondary transition-colors">
+                          {personalDetails.location}
+                        </span>
+                      </div>
+                    </div>
+                    <ArrowUpRight size={16} className="text-slate-500 group-hover/item:text-white group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 transition-all shrink-0 ml-2" />
+                  </a>
                 </div>
               </div>
 
-              <form className="space-y-6">
-                <div className="relative group">
-                  <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-secondary transition-colors">
-                    <MessageSquare size={18} />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
-                  />
-                </div>
+              {/* Social Profiles Grid Footer */}
+              <div className="relative z-10 pt-6 mt-6 border-t border-white/5 space-y-3">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Social & Code Profiles</span>
+                <div className="grid grid-cols-3 gap-3">
+                  <a
+                    href={personalDetails.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500 hover:text-white transition-all flex items-center justify-center gap-2 group text-xs font-bold"
+                  >
+                    <FaLinkedin size={16} />
+                    <span>LinkedIn</span>
+                  </a>
 
-                <div className="relative group">
-                  <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-secondary transition-colors">
-                    <Mail size={18} />
-                  </div>
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
-                  />
-                </div>
+                  <a
+                    href={personalDetails.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/20 transition-all flex items-center justify-center gap-2 group text-xs font-bold"
+                  >
+                    <FaGithub size={16} />
+                    <span>GitHub</span>
+                  </a>
 
-                <div className="relative group">
-                  <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-secondary transition-colors">
-                    <Phone size={18} />
-                  </div>
-                  <input
-                    type="tel"
-                    placeholder="Your Phone Number"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 focus:bg-white/[0.08]"
-                  />
+                  <a
+                    href={personalDetails.Instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 hover:bg-pink-500 hover:text-white transition-all flex items-center justify-center gap-2 group text-xs font-bold"
+                  >
+                    <FaInstagram size={16} />
+                    <span>Instagram</span>
+                  </a>
                 </div>
+              </div>
+            </div>
+          </motion.div>
 
-                <div className="relative group">
-                  <div className="absolute left-6 top-6 text-slate-500 group-focus-within:text-secondary transition-colors">
-                    <MessageSquare size={18} />
-                  </div>
-                  <textarea
-                    rows="4"
-                    placeholder="Your Message"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 md:py-5 focus:outline-none focus:border-secondary/50 transition-all text-white placeholder:text-slate-600 resize-none focus:bg-white/[0.08]"
-                  />
-                </div>
+          {/* Right Column: Contact Form Panel (7 Columns) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 h-full flex flex-col"
+          >
+            <div className="p-8 sm:p-10 rounded-[2.5rem] glass border border-white/10 relative overflow-hidden shadow-2xl h-full flex flex-col justify-between">
+              {/* Inner Glow Lighting */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[90px] pointer-events-none" />
 
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full h-16 rounded-2xl bg-gradient-to-r from-secondary to-purple-600 text-white font-bold flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(112,66,248,0.3)] hover:shadow-[0_15px_40px_rgba(112,66,248,0.5)] transition-all"
+              <div className="mb-6 relative z-10">
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-1.5">Send a Message</h3>
+                <p className="text-slate-400 text-xs sm:text-sm">Fill out the details below and I will respond to your message promptly.</p>
+              </div>
+
+              {submitted ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="p-8 rounded-3xl bg-green-500/10 border border-green-500/30 text-center space-y-4 my-auto"
                 >
-                  <Send size={18} />
-                  Send Message
-                </motion.button>
-              </form>
-            </motion.div>
-          </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mt-12 p-8 md:p-12 rounded-[3rem] glass-premium border border-white/5 relative overflow-hidden"
-        >
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary/20 to-secondary/20" />
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em]">Connect & Reach Out</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-secondary/20 to-secondary/20" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                label: "Email Addresses",
-                icon: <Mail className="text-cyan-500" />,
-                bgColor: "bg-cyan-500/10",
-                borderColor: "hover:border-cyan-500/50",
-                links: [
-                  { val: personalDetails.email, href: `mailto:${personalDetails.email}` },
-                  { val: personalDetails.email2, href: `mailto:${personalDetails.email2}` }
-                ]
-              },
-              {
-                label: "Phone Numbers",
-                icon: <Phone className="text-green-500" />,
-                bgColor: "bg-green-500/10",
-                borderColor: "hover:border-green-500/50",
-                links: [
-                  { val: personalDetails.phone, href: `tel:${personalDetails.phone.replace(/[-\s]/g, '')}` },
-                  { val: personalDetails.phone2, href: `tel:${personalDetails.phone2.replace(/[-\s]/g, '')}` }
-                ]
-              },
-              {
-                label: "Location",
-                sub: personalDetails.location,
-                icon: <MapPin className="text-red-500" />,
-                href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalDetails.location)}`,
-                bgColor: "bg-red-500/10",
-                borderColor: "hover:border-red-500/50"
-              },
-              {
-                label: "LinkedIn",
-                sub: "Professional Profile",
-                icon: <FaLinkedin className="text-blue-500" />,
-                href: personalDetails.linkedin,
-                bgColor: "bg-blue-500/10",
-                borderColor: "hover:border-blue-500/50"
-              },
-              {
-                label: "Instagram",
-                sub: "@yovexaprime",
-                icon: <FaInstagram className="text-pink-500" />,
-                href: personalDetails.Instagram,
-                bgColor: "bg-pink-500/10",
-                borderColor: "hover:border-pink-500/50"
-              },
-              {
-                label: "GitHub",
-                sub: "@bhumikajain54",
-                icon: <FaGithub className="text-white" />,
-                href: personalDetails.github,
-                bgColor: "bg-white/10",
-                borderColor: "hover:border-white/50"
-              },
-            ].map((social, i) => (
-              social.links ? (
-                <div
-                  key={i}
-                  className={`p-6 rounded-3xl bg-white/[0.03] border border-white/5 ${social.borderColor} transition-all duration-300 group flex items-start gap-5 hover:bg-white/[0.06] shadow-xl relative overflow-hidden`}
-                >
-                  <div className={`w-12 h-12 rounded-2xl ${social.bgColor} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300 relative z-10 shrink-0`}>
-                    {social.icon}
+                  <div className="w-16 h-16 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 mx-auto">
+                    <CheckCircle2 size={32} />
                   </div>
-                  <div className="min-w-0 relative z-10 flex-1">
-                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">{social.label}</p>
-                    <div className="space-y-1">
-                      {social.links.map((link, idx) => (
-                        <a
-                          key={idx}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-sm font-medium text-white hover:text-secondary transition-colors break-all"
-                        >
-                          {link.val}
-                        </a>
-                      ))}
+                  <h4 className="text-xl font-bold text-white">Message Sent Successfully!</h4>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Thank you for reaching out, {formData.name || 'friend'}. I have received your message regarding <strong className="text-white">{formData.subject}</strong> and will get back to you shortly.
+                  </p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5 relative z-10 flex-1 flex flex-col justify-between">
+                  <div className="space-y-5">
+                    {/* Name Input */}
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">Your Name</label>
+                      <div className="relative group">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-focus-within:text-secondary group-focus-within:border-secondary/40 transition-colors">
+                          <User size={16} />
+                        </div>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder="John Doe"
+                          className="w-full bg-white/[0.04] border border-white/10 rounded-2xl pl-16 pr-5 py-3.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-secondary/60 focus:bg-white/[0.07] focus:ring-2 focus:ring-secondary/20 transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Email & Phone Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="space-y-1.5">
+                        <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">Your Email</label>
+                        <div className="relative group">
+                          <div className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-focus-within:text-secondary group-focus-within:border-secondary/40 transition-colors">
+                            <Mail size={16} />
+                          </div>
+                          <input
+                            type="email"
+                            required
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            placeholder="john@example.com"
+                            className="w-full bg-white/[0.04] border border-white/10 rounded-2xl pl-16 pr-5 py-3.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-secondary/60 focus:bg-white/[0.07] focus:ring-2 focus:ring-secondary/20 transition-all"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">Phone Number (Optional)</label>
+                        <div className="relative group">
+                          <div className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-focus-within:text-secondary group-focus-within:border-secondary/40 transition-colors">
+                            <Phone size={16} />
+                          </div>
+                          <input
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            placeholder="+91 9876543210"
+                            className="w-full bg-white/[0.04] border border-white/10 rounded-2xl pl-16 pr-5 py-3.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-secondary/60 focus:bg-white/[0.07] focus:ring-2 focus:ring-secondary/20 transition-all"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Topic / Subject Selection Pills */}
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                        <Tag size={12} className="text-secondary" />
+                        Inquiry Topic / Subject
+                      </label>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        {subjects.map((subj) => (
+                          <button
+                            key={subj}
+                            type="button"
+                            onClick={() => setFormData({ ...formData, subject: subj })}
+                            className={`py-2.5 px-3 rounded-xl text-xs font-bold transition-all border text-center truncate ${
+                              formData.subject === subj
+                                ? 'bg-secondary text-white border-secondary shadow-[0_0_15px_rgba(112,66,248,0.4)]'
+                                : 'bg-white/[0.03] text-slate-400 border-white/10 hover:border-white/20 hover:text-white'
+                            }`}
+                          >
+                            {subj}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Message Input */}
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">Your Message</label>
+                      <div className="relative group">
+                        <div className="absolute left-4 top-4 w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-focus-within:text-secondary group-focus-within:border-secondary/40 transition-colors">
+                          <MessageSquare size={16} />
+                        </div>
+                        <textarea
+                          rows="4"
+                          required
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          placeholder="Tell me about your project, role details, or inquiry..."
+                          className="w-full bg-white/[0.04] border border-white/10 rounded-2xl pl-16 pr-5 py-3.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-secondary/60 focus:bg-white/[0.07] focus:ring-2 focus:ring-secondary/20 transition-all resize-none"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Guarantees & Response Time Banner */}
+                    <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+                      <div className="flex items-center gap-2">
+                        <Clock size={14} className="text-secondary" />
+                        <span>Average Response Time: <strong>&lt; 24 Hours</strong></span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck size={14} className="text-green-400" />
+                        <span>100% Privacy Assured</span>
+                      </div>
                     </div>
                   </div>
-                  <div className={`absolute top-0 right-0 w-24 h-24 ${social.bgColor} blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-                </div>
-              ) : (
-                <a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-6 rounded-3xl bg-white/[0.03] border border-white/5 ${social.borderColor} transition-all duration-300 group flex items-center gap-5 hover:bg-white/[0.06] shadow-xl relative overflow-hidden`}
-                >
-                  <div className={`w-12 h-12 rounded-2xl ${social.bgColor} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300 relative z-10 shrink-0`}>
-                    {social.icon}
-                  </div>
-                  <div className="min-w-0 relative z-10">
-                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{social.label}</p>
-                    <p className="text-sm font-medium text-white break-all group-hover:text-secondary transition-colors">{social.sub}</p>
-                  </div>
-                  <div className={`absolute top-0 right-0 w-24 h-24 ${social.bgColor} blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-                </a>
-              )
-            ))}
-          </div>
-        </motion.div>
+
+                  {/* Submit Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    type="submit"
+                    className="w-full py-4 rounded-2xl bg-secondary text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_25px_rgba(112,66,248,0.4)] hover:shadow-[0_0_35px_rgba(112,66,248,0.6)] transition-all group mt-2"
+                  >
+                    <span>Send Message</span>
+                    <Send size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                </form>
+              )}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Contact;
-
