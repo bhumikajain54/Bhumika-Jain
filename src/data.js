@@ -389,17 +389,17 @@ export const education = [
 ];
 
 export const certifications = [
-  { title: "Master in Full Stack Web Development with Java", image: "/src/assets/17234.jpg" },
-  { title: "Full Stack Java Developer", image: "/src/assets/fsdspringboot.jpg" },
-  { title: "Core Java Programming", image: "/src/assets/corejava.jpg" },
-  { title: "Advanced Web Design", image: "/src/assets/advancedwebdesign.jpg" },
-  { title: "SQL Database Management", image: "/src/assets/sql.jpg" },
-  { title: "MongoDB Developer", image: "/src/assets/mongodb.jpg" },
-  { title: "Core Web Design", image: "/src/assets/corewebdesign.jpg" },
-  { title: "Testing in Java", image: "/src/assets/testinginjava.jpg" },
-  { title: "Project & Case Studies (JFSD)", image: "/src/assets/projectandcasestudiesjfsd.jpg" },
-  { title: "Profile Building", image: "/src/assets/profilebuilding.jpg" },
-  { title: "CCE Certificate", image: "/src/assets/cce_certificate.jpg" }
+  { title: "Master in Full Stack Web Development with Java", image: "/certificates/17234.jpg" },
+  { title: "Full Stack Java Developer", image: "/certificates/fsdspringboot.jpg" },
+  { title: "Core Java Programming", image: "/certificates/corejava.jpg" },
+  { title: "Advanced Web Design", image: "/certificates/advancedwebdesign.jpg" },
+  { title: "SQL Database Management", image: "/certificates/sql.jpg" },
+  { title: "MongoDB Developer", image: "/certificates/mongodb.jpg" },
+  { title: "Core Web Design", image: "/certificates/corewebdesign.jpg" },
+  { title: "Testing in Java", image: "/certificates/testinginjava.jpg" },
+  { title: "Project & Case Studies (JFSD)", image: "/certificates/projectandcasestudiesjfsd.jpg" },
+  { title: "Profile Building", image: "/certificates/profilebuilding.jpg" },
+  { title: "CCE Certificate", image: "/certificates/cce_certificate.jpg" }
 ];
 
 export const achievements = [
