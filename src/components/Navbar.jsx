@@ -37,18 +37,38 @@ const Navbar = () => {
 
       const scrollCheck = window.scrollY + windowHeight * 0.4;
 
-      if (contactEl && scrollCheck >= contactEl.offsetTop - 50) {
-        setActiveSection('contact');
+      let currentSection = 'welcome';
+      let currentHash = '';
+
+      if (window.scrollY + windowHeight >= fullHeight - 80) {
+        currentSection = 'contact';
+        currentHash = '#contact';
+      } else if (contactEl && scrollCheck >= contactEl.offsetTop - 50) {
+        currentSection = 'contact';
+        currentHash = '#contact';
       } else if (portfolioEl && scrollCheck >= portfolioEl.offsetTop - 50) {
-        setActiveSection('portfolio');
+        currentSection = 'portfolio';
+        currentHash = '#portfolio';
       } else if (experienceEl && scrollCheck >= experienceEl.offsetTop - 50) {
-        setActiveSection('experience');
+        currentSection = 'experience';
+        currentHash = '#experience';
       } else if (aboutEl && scrollCheck >= aboutEl.offsetTop - 50) {
-        setActiveSection('about');
+        currentSection = 'about';
+        currentHash = '#about';
       } else if (heroEl && scrollCheck >= heroEl.offsetTop - 50) {
-        setActiveSection('home');
+        currentSection = 'home';
+        currentHash = '#hero';
       } else {
-        setActiveSection('welcome');
+        currentSection = 'welcome';
+        currentHash = '';
+      }
+
+      setActiveSection(currentSection);
+
+      // Dynamically update browser address bar URL hash without page jump or history clutter
+      const targetUrl = currentHash ? `${window.location.pathname}${currentHash}` : window.location.pathname;
+      if (window.location.hash !== currentHash) {
+        window.history.replaceState(null, '', targetUrl);
       }
     };
 
@@ -57,9 +77,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (id) => {
+  const handleNavClick = (id, href) => {
     setActiveSection(id);
     if (isOpen) setIsOpen(false);
+
+    if (href) {
+      const targetUrl = href === '#welcome' ? window.location.pathname : `${window.location.pathname}${href}`;
+      window.history.replaceState(null, '', targetUrl);
+    }
 
     // Lock scroll spy for 1000ms while smooth scrolling to target section
     isClickingRef.current = true;
