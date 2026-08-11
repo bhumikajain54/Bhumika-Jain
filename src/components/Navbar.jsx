@@ -33,6 +33,7 @@ const Navbar = () => {
       const portfolioEl = document.getElementById('portfolio');
       const experienceEl = document.getElementById('experience');
       const aboutEl = document.getElementById('about');
+      const heroEl = document.getElementById('hero');
 
       const scrollCheck = window.scrollY + windowHeight * 0.4;
 
@@ -44,8 +45,10 @@ const Navbar = () => {
         setActiveSection('experience');
       } else if (aboutEl && scrollCheck >= aboutEl.offsetTop - 50) {
         setActiveSection('about');
-      } else {
+      } else if (heroEl && scrollCheck >= heroEl.offsetTop - 50) {
         setActiveSection('home');
+      } else {
+        setActiveSection('welcome');
       }
     };
 
@@ -67,7 +70,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Home', href: '#', id: 'home' },
+    { name: 'Home', href: '#hero', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Experience', href: '#experience', id: 'experience' },
     { name: 'Portfolio', href: '#portfolio', id: 'portfolio' },
@@ -99,7 +102,8 @@ const Navbar = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center relative z-10">
             {/* Logo Badge */}
             <motion.a
-              href="#"
+              href="#welcome"
+              onClick={() => handleNavClick('welcome')}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-3 group"

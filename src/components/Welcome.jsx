@@ -72,6 +72,7 @@ const Welcome = () => {
 
   return (
     <div
+      id="welcome"
       onMouseMove={handleMouseMove}
       className="h-screen w-full flex flex-col items-center justify-center bg-[#030014] relative overflow-hidden select-none"
     >
