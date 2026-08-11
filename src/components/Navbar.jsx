@@ -128,7 +128,7 @@ const Navbar = () => {
             {/* Logo Badge */}
             <motion.a
               href="#welcome"
-              onClick={() => handleNavClick('welcome')}
+              onClick={() => handleNavClick('welcome', '#welcome')}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-3 group"
@@ -156,7 +156,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={() => handleNavClick(link.id)}
+                    onClick={() => handleNavClick(link.id, link.href)}
                     className={`px-5 py-2 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 relative ${
                       isActive
                         ? 'text-white bg-gradient-to-r from-purple-500/25 to-cyan-500/25 border border-cyan-400/40 shadow-[0_0_15px_rgba(0,210,255,0.25)]'
@@ -196,7 +196,7 @@ const Navbar = () => {
                       <a
                         key={link.name}
                         href={link.href}
-                        onClick={() => handleNavClick(link.id)}
+                        onClick={() => handleNavClick(link.id, link.href)}
                         className={`p-3.5 rounded-xl text-sm font-bold tracking-wider uppercase transition-all flex items-center justify-between ${
                           isActive
                             ? 'bg-gradient-to-r from-[#7042f8]/20 to-[#00d2ff]/20 text-cyan-300 border border-cyan-400/30'
