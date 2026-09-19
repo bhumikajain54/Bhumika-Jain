@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { experience } from '../data';
-import { Calendar, Building2, Award, ArrowUpRight, X, CheckCircle, Briefcase, ChevronRight, Layers, Sparkles } from 'lucide-react';
+import { Calendar, Building2, Award, ArrowUpRight, X, CheckCircle, Briefcase, ChevronRight, Layers, Sparkles, FolderGit2 } from 'lucide-react';
 
 const Experience = () => {
   const [selectedExp, setSelectedExp] = useState(null);
@@ -16,16 +16,27 @@ const Experience = () => {
 
   // Calculate years of experience dynamically from experience data
   const years = experience.map(exp => {
-    const match = exp.period.match(/\b(20\d{2})\b/g);
-    return match ? match.map(Number) : [];
+    let match = exp.period.match(/\b(20\d{2})\b/g) || [];
+    if (exp.clients) {
+      exp.clients.forEach(c => {
+        const cMatch = c.period.match(/\b(20\d{2})\b/g);
+        if (cMatch) match = match.concat(cMatch);
+      });
+    }
+    return match.map(Number);
   }).flat();
   const startYear = years.length > 0 ? Math.min(...years) : 2024;
   const currentYear = new Date().getFullYear();
   const yearsOfExp = currentYear - startYear;
 
-  // Helper function to extract tech stack keywords accurately from role descriptions
+  // Total roles count including primary and client engagements
+  const totalRoles = experience.reduce((acc, curr) => acc + 1 + (curr.clients?.length || 0) - (curr.clients?.length ? 0 : 0), 0);
+  const totalClients = experience.reduce((acc, curr) => acc + (curr.clients?.length || 0), 0);
+
+  // Helper function to extract tech stack keywords accurately from role & client descriptions
   const getTechStack = (descriptionArray) => {
-    const text = descriptionArray.join(' ');
+    if (!descriptionArray) return ['Full Stack', 'Web Apps'];
+    const text = Array.isArray(descriptionArray) ? descriptionArray.join(' ') : String(descriptionArray);
     const knownTech = [
       'Java', 'Spring Boot', 'React.js', 'React', 'Angular', 'PHP', 'MySQL',
       'MongoDB', 'PostgreSQL', 'NeonDB', 'REST API', 'RESTful APIs', 'JWT',
@@ -129,7 +140,7 @@ const Experience = () => {
               transition={{ delay: 0.1 }}
               className="text-slate-300/90 text-base sm:text-lg leading-relaxed font-normal"
             >
-              A proven track record of architecting robust enterprise applications, building scalable RESTful APIs, and designing responsive frontend systems.
+              A proven track record of architecting robust enterprise applications, building scalable RESTful APIs, and delivering client projects end-to-end.
             </motion.p>
           </div>
 
@@ -142,9 +153,9 @@ const Experience = () => {
           >
             <div className="text-center sm:text-right">
               <div className="text-3xl font-black bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                {experience.length}
+                {totalClients > 0 ? `${totalClients + 2}` : experience.length}
               </div>
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Total Roles</div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Total Engagements</div>
             </div>
             <div className="w-[1px] h-10 bg-white/10" />
             <div className="text-center sm:text-right">
@@ -156,149 +167,182 @@ const Experience = () => {
           </motion.div>
         </div>
 
-        {/* Timeline Grid Container */}
-        <div className="relative pl-6 sm:pl-10 lg:pl-0">
-          {/* Mobile Left Timeline Line */}
-          <div className="lg:hidden absolute left-[11px] sm:left-[19px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-[#7042f8] via-[#a855f7] to-[#00d2ff] z-0 shadow-[0_0_15px_rgba(112,66,248,0.5)]" />
+        {/* Experience Roles Stack */}
+        <div className="space-y-12 relative">
+          {experience.map((exp, idx) => {
+            const techTags = getTechStack(exp.description);
+            const isPresent = exp.period.includes('Present');
+            const hasClients = exp.clients && exp.clients.length > 0;
 
-          {/* Desktop Center Timeline Line */}
-          <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 w-0.5 -translate-x-1/2 bg-gradient-to-b from-[#7042f8] via-[#a855f7] to-[#00d2ff] z-0 pointer-events-none shadow-[0_0_15px_rgba(112,66,248,0.5)]" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-16 lg:gap-y-12 relative">
-            {experience.map((exp, idx) => {
-              const techTags = getTechStack(exp.description);
-              const isPresent = exp.period.includes('Present');
-              const isEven = idx % 2 === 0;
-
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="relative"
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="relative"
+              >
+                {/* Main Role Card */}
+                <div
+                  className="p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-900/70 backdrop-blur-2xl border border-white/15 hover:border-cyan-400/50 hover:bg-slate-900/85 transition-all duration-500 relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.4)] hover:shadow-[0_0_45px_rgba(112,66,248,0.35)] flex flex-col justify-between"
                 >
-                  {/* Timeline Hub Node (Mobile) */}
-                  <div className="lg:hidden absolute -left-[24px] sm:-left-[32px] top-6 -translate-x-1/2 z-20">
-                    <div className="relative flex items-center justify-center">
-                      <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#030014] border-2 ${isPresent ? 'border-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.8)]' : 'border-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.7)]'} flex items-center justify-center`}>
-                        <div className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${isPresent ? 'bg-emerald-400 animate-pulse' : 'bg-gradient-to-r from-purple-500 to-cyan-400'}`} />
-                      </div>
-                    </div>
-                  </div>
+                  {/* Ambient Inner Lighting */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-cyan-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                  {/* Timeline Hub Node (Desktop Center) */}
-                  <div className={`hidden lg:flex absolute top-8 z-20 ${isEven ? '-right-[2rem] xl:-right-[2.25rem] translate-x-1/2' : '-left-[2rem] xl:-left-[2.25rem] -translate-x-1/2'}`}>
-                    <div className="relative flex items-center justify-center">
-                      <div className={`w-7 h-7 rounded-full bg-[#030014] border-2 ${isPresent ? 'border-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.8)]' : 'border-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.7)]'} flex items-center justify-center`}>
-                        <div className={`w-2.5 h-2.5 rounded-full ${isPresent ? 'bg-emerald-400 animate-pulse' : 'bg-gradient-to-r from-purple-500 to-cyan-400'}`} />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Experience Card */}
-                  <div className="group relative h-full">
-                    <motion.div
-                      whileHover={{ y: -4 }}
-                      onClick={() => setSelectedExp(exp)}
-                      className="p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-900/60 backdrop-blur-2xl border border-white/15 hover:border-cyan-400/50 hover:bg-slate-900/80 transition-all duration-500 relative overflow-hidden cursor-pointer shadow-[0_10px_35px_rgba(0,0,0,0.4)] hover:shadow-[0_0_45px_rgba(112,66,248,0.35)] h-full flex flex-col justify-between"
-                    >
-                      {/* Ambient Inner Lighting */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                      <div className="relative z-10 space-y-6">
-                        {/* Top Metadata Row: Company & Date */}
-                        <div className="flex flex-wrap items-center justify-between gap-4">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30 flex items-center justify-center text-cyan-300 group-hover:scale-110 group-hover:bg-purple-500/30 group-hover:text-white transition-all duration-500 shrink-0 shadow-inner">
-                              <Building2 size={22} />
-                            </div>
-                            <div>
-                              <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                                {exp.company}
-                              </h4>
-                              <div className="flex items-center gap-2 text-slate-400 text-xs font-medium">
-                                <Calendar size={13} className="text-secondary" />
-                                <span>{exp.period}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {isPresent ? (
-                            <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-black tracking-widest uppercase flex items-center gap-2 shadow-[0_0_15px_rgba(52,211,153,0.2)]">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                              Active Role
-                            </div>
-                          ) : (
-                            <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-[10px] font-bold tracking-widest uppercase">
-                              Completed
-                            </div>
-                          )}
+                  <div className="relative z-10 space-y-6">
+                    {/* Top Metadata Row: Company & Date */}
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/30 flex items-center justify-center text-cyan-300 shrink-0 shadow-inner">
+                          {exp.company === 'Freelance' ? <Briefcase size={24} /> : <Building2 size={24} />}
                         </div>
-
-                        {/* Role Title */}
                         <div>
-                          <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
-                            {exp.role}
-                          </h3>
-                        </div>
-
-                        {/* Key Highlights */}
-                        <div className="space-y-3">
-                          {exp.description.slice(0, 3).map((item, i) => (
-                            <div
-                              key={i}
-                              className="flex items-start gap-3 p-3 sm:p-4 rounded-2xl bg-white/[0.03] border border-white/10 group/item hover:bg-white/[0.08] hover:border-purple-400/30 transition-all"
-                            >
-                              <div className="mt-1 w-5 h-5 rounded-lg bg-purple-500/10 flex items-center justify-center text-cyan-300 shrink-0 border border-purple-500/30 group-hover/item:bg-gradient-to-r group-hover/item:from-purple-500 group-hover/item:to-cyan-400 group-hover/item:text-white transition-all">
-                                <ChevronRight size={13} />
-                              </div>
-                              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed group-hover/item:text-white transition-colors">
-                                {item}
-                              </p>
-                            </div>
-                          ))}
+                          <h4 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                            {exp.company}
+                          </h4>
+                          <div className="flex items-center gap-2 text-slate-400 text-xs sm:text-sm font-medium">
+                            <Calendar size={14} className="text-secondary" />
+                            <span>{exp.period}</span>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Card Footer: Tech Tags & View Details CTA */}
-                      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 pt-6 mt-6 border-t border-white/10">
-                        <div className="flex flex-wrap gap-2">
-                          {techTags.slice(0, 4).map((tag, i) => (
-                            <span
-                              key={i}
-                              className="text-[10px] font-bold tracking-wider uppercase px-3 py-1.5 bg-slate-800/80 text-cyan-300 rounded-xl border border-white/10 group-hover:border-cyan-400/50 transition-all"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                          {techTags.length > 4 && (
-                            <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1.5 bg-white/5 text-slate-400 rounded-xl border border-white/10">
-                              +{techTags.length - 4} more
-                            </span>
-                          )}
+                      {isPresent ? (
+                        <div className="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-black tracking-widest uppercase flex items-center gap-2 shadow-[0_0_15px_rgba(52,211,153,0.2)]">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          Active Role
                         </div>
+                      ) : (
+                        <div className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-bold tracking-widest uppercase">
+                          Completed
+                        </div>
+                      )}
+                    </div>
 
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedExp(exp);
-                          }}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-cyan-300 group-hover:translate-x-1 transition-all ml-auto"
+                    {/* Role Title */}
+                    <div>
+                      <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-snug">
+                        {exp.role}
+                      </h3>
+                    </div>
+
+                    {/* Primary Deliverables */}
+                    <div className="space-y-3">
+                      {exp.description.map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.08] hover:border-purple-400/30 transition-all"
                         >
-                          View Details <ArrowUpRight size={16} className="text-cyan-400" />
-                        </button>
-                      </div>
+                          <div className="mt-1 w-5 h-5 rounded-lg bg-purple-500/10 flex items-center justify-center text-cyan-300 shrink-0 border border-purple-500/30">
+                            <ChevronRight size={13} />
+                          </div>
+                          <p className="text-slate-300 text-sm leading-relaxed">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
 
-                      {/* Bottom Hover Gradient Accent */}
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                    </motion.div>
+                    {/* Nested Client Projects / Engagements Section inside Freelance */}
+                    {hasClients && (
+                      <div className="pt-6 space-y-6 border-t border-white/10 mt-6">
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          <div className="flex items-center gap-2.5 text-cyan-300 font-extrabold text-base sm:text-lg tracking-wide">
+                            <FolderGit2 size={20} className="text-cyan-400 animate-pulse" />
+                            <span>Selected Client Projects / Engagements ({exp.clients.length})</span>
+                          </div>
+                          <span className="text-xs text-purple-300/90 font-medium px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">
+                            Delivered under Freelancing
+                          </span>
+                        </div>
+
+                        {/* Clients Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          {exp.clients.map((clientItem, cIdx) => {
+                            const clientTech = getTechStack(clientItem.description);
+                            return (
+                              <motion.div
+                                key={cIdx}
+                                whileHover={{ y: -3 }}
+                                onClick={() => setSelectedExp(clientItem)}
+                                className="p-5 sm:p-6 rounded-2xl bg-slate-950/60 border border-white/10 hover:border-cyan-400/40 hover:bg-slate-900/90 transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-4 shadow-[0_4px_20px_rgba(0,0,0,0.3)] group/client"
+                              >
+                                <div className="space-y-3">
+                                  <div className="flex flex-wrap items-start justify-between gap-2">
+                                    <div>
+                                      <h5 className="font-black text-white text-base sm:text-lg group-hover/client:text-cyan-300 transition-colors">
+                                        {clientItem.company}
+                                      </h5>
+                                      <div className="text-xs font-bold text-slate-400 mt-0.5">
+                                        {clientItem.role}
+                                      </div>
+                                    </div>
+                                    <span className="text-[10px] font-bold text-purple-300 px-2.5 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 whitespace-nowrap">
+                                      {clientItem.period.replace('Client Engagement ', '').replace('Client Engagement', 'Client Project')}
+                                    </span>
+                                  </div>
+
+                                  <div className="space-y-2">
+                                    {clientItem.description.map((desc, dIdx) => (
+                                      <div key={dIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300/90 leading-relaxed font-normal">
+                                        <span className="text-cyan-400 mt-1 shrink-0">•</span>
+                                        <span>{desc}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-white/5">
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {clientTech.slice(0, 3).map((tag, tIdx) => (
+                                      <span
+                                        key={tIdx}
+                                        className="text-[9px] font-bold tracking-wider uppercase px-2.5 py-1 bg-slate-800/80 text-cyan-300 rounded-lg border border-white/10"
+                                      >
+                                        {tag}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <span className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 group-hover/client:translate-x-1 transition-transform">
+                                    View Details <ArrowUpRight size={14} />
+                                  </span>
+                                </div>
+                              </motion.div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
+
+                  {/* Card Footer: Tech Tags & View Details CTA */}
+                  <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 pt-6 mt-6 border-t border-white/10">
+                    <div className="flex flex-wrap gap-2">
+                      {techTags.slice(0, 6).map((tag, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] font-bold tracking-wider uppercase px-3 py-1.5 bg-slate-800/80 text-cyan-300 rounded-xl border border-white/10"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => setSelectedExp(exp)}
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-300 hover:text-cyan-300 transition-all ml-auto"
+                    >
+                      View Breakdown <ArrowUpRight size={16} className="text-cyan-400" />
+                    </button>
+                  </div>
+
+                  {/* Bottom Hover Gradient Accent */}
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-400" />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
@@ -328,7 +372,9 @@ const Experience = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white leading-tight">{selectedExp.company}</h3>
-                    <span className="text-[10px] font-black tracking-widest text-slate-400 uppercase">Role Breakdown</span>
+                    <span className="text-[10px] font-black tracking-widest text-slate-400 uppercase">
+                      {selectedExp.clients ? 'Freelance Practice Overview' : 'Engagement Breakdown'}
+                    </span>
                   </div>
                 </div>
 
@@ -377,7 +423,7 @@ const Experience = () => {
                 {/* Complete Key Contributions */}
                 <div>
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <CheckCircle size={14} className="text-purple-400" /> Deliverables & Technical Contributions
+                    <CheckCircle size={14} className="text-purple-400" /> Deliverables & Responsibilities
                   </h4>
                   <div className="space-y-4">
                     {selectedExp.description.map((item, i) => (
@@ -397,6 +443,29 @@ const Experience = () => {
                   </div>
                 </div>
 
+                {/* Client Engagements List (if selectedExp has clients) */}
+                {selectedExp.clients && selectedExp.clients.length > 0 && (
+                  <div className="space-y-4 pt-4 border-t border-white/10">
+                    <h4 className="text-xs font-bold text-cyan-300 uppercase tracking-widest flex items-center gap-2">
+                      <FolderGit2 size={15} /> All Client Projects ({selectedExp.clients.length})
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {selectedExp.clients.map((c, i) => (
+                        <div key={i} className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
+                          <div className="flex items-center justify-between gap-2">
+                            <h5 className="font-bold text-white text-sm">{c.company}</h5>
+                            <span className="text-[10px] text-purple-300 bg-purple-500/15 px-2 py-0.5 rounded-full">{c.period}</span>
+                          </div>
+                          <div className="text-xs font-semibold text-cyan-300">{c.role}</div>
+                          {c.description.map((d, dIdx) => (
+                            <p key={dIdx} className="text-xs text-slate-300 leading-relaxed">• {d}</p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Summary Highlight Box */}
                 <div className="p-6 rounded-3xl bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-transparent border border-purple-500/30 relative overflow-hidden">
                   <Sparkles className="absolute top-4 right-4 text-purple-400/40 animate-pulse" size={24} />
@@ -415,4 +484,3 @@ const Experience = () => {
 };
 
 export default Experience;
-

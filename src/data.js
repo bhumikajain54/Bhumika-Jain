@@ -7,7 +7,7 @@ export const personalDetails = {
   linkedin: "https://linkedin.com/in/jain-bhumika",
   github: "https://github.com/bhumikajain54",
   Instagram: "https://www.instagram.com/yovexaprime?igsh=MXF6ZDVjNmZ0b2xqOQ==",
-  summary: "Full Stack Developer with hands-on experience in building scalable web applications using Java, Spring Boot, React, and Angular. Skilled in REST API development, JWT authentication, and database optimization. Strong collaborator in Agile environments with a focus on performance and security."
+  summary: "Full Stack Developer with 2+ years of hands-on experience through freelance and professional development projects. Skilled in Java, Spring Boot, React.js, Angular, PHP, MySQL, Hibernate, JPA, and REST APIs. Experienced in building recruitment platforms, e-commerce applications, dashboards, and business management systems, with strong knowledge of API integration, database optimization, authentication, CRUD operations, and responsive UI development."
 };
 
 export const skills = [
@@ -49,65 +49,89 @@ export const experience = [
   {
     role: "Full Stack Developer",
     company: "Freelance",
-    period: "Feb 2026 – Present",
+    period: "July 2024 – Present",
     description: [
-      "Built full-stack e-commerce platforms and web applications using Java, Spring Boot, React.js, Tailwind CSS, PHP, and MySQL.",
-      "Developed secure REST APIs, payment & checkout workflows, soft delete features, and admin management portals.",
-      "Optimized backend queries and database operations using NeonDB and MySQL for clients."
-    ]
-  },
-  {
-    role: "Software Developer",
-    company: "Brightorial Pvt. Ltd.",
-    period: "May 2025 – Feb 2026",
-    description: [
-      "Developed backend modules and integrated frontend-backend workflows for JobSahi recruitment platform handling 5,000+ job seekers.",
-      "Developed and integrated 10+ PHP REST APIs for applicant management, interview scheduling, recruiter notifications, and job tracking.",
-      "Built secure backend modules using PHP + MySQL for 1,000+ active recruiter and applicant records.",
-      "Integrated backend APIs with React.js dashboard modules, reducing manual data refresh efforts by 40%.",
-      "Implemented full CRUD operations, advanced search, filtering, analytics modules, and calendar scheduling across 4+ dashboard sections.",
-      "Optimized MySQL queries and API response handling, reducing average API response time by 25%."
-    ]
-  },
-  {
-    role: "Full Stack Developer",
-    company: "Code-B Solutions Pvt. Ltd.",
-    period: "Feb 2025 – Apr 2025",
-    description: [
-      "Built and maintained full-stack web applications and Management Information Systems (MIS) using Spring Boot, React.js, and MySQL.",
-      "Developed comprehensive invoicing and billing automation, real-time financial reporting, and client/vendor management portals.",
-      "Created RESTful APIs and responsive UI components with robust data validation and security standards."
-    ]
-  },
-  {
-    role: "IT Developer",
-    company: "Lord’s Mark Insurance Broking Services Pvt. Ltd.",
-    period: "Dec 2024 – Jan 2025",
-    description: [
-      "Developed dynamic policy tracking and claims management modules for Insurance Management Information System (MIS).",
-      "Integrated Spring Boot backend APIs with Angular and React frontend interfaces with role-based access control (RBAC).",
-      "Implemented security practices including XSS and CSRF protection for sensitive financial data."
-    ]
-  },
-  {
-    role: "Software Developer",
-    company: "Visom6 Technology Pvt. Ltd.",
-    period: "July 2024 – Oct 2024",
-    description: [
-      "Developed responsive web frontend interfaces and scalable RESTful API services.",
-      "Participated in database schema design, query optimization, and UI performance enhancements.",
-      "Performed API testing and debugging using Postman across GET, POST, PUT, DELETE endpoints."
+      "Delivered full-stack web applications across 4 business domains using Java, Spring Boot, and React.js.",
+      "Developed REST APIs, dashboards, and responsive UI for multiple client projects.",
+      "Managed projects end-to-end from requirements and development to testing, deployment, and maintenance."
+    ],
+    clients: [
+      {
+        role: "Web Developer",
+        company: "MRJ. Mayank Jain",
+        period: "Client Engagement (July 2026 - Sept 2026)",
+        description: [
+          "Developed a responsive architect portfolio and design showcase website with custom UI components.",
+          "Engineered smooth animations, optimized media assets, and mobile-first responsive layouts."
+        ]
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Aman Kasar",
+        period: "Client Engagement (April 2026 - June 2026)",
+        description: [
+          "Developed a school management system covering student records, attendance, and academic workflows.",
+          "Implemented REST APIs and database modules for administrative and reporting functionality."
+        ]
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Sajal Jain",
+        period: "Client Engagement (Feb 2026- March 2026)",
+        description: [
+          "Built a full-stack e-commerce platform for a sanitaryware and fittings business.",
+          "Developed responsive browsing, search/filtering, and CRUD functionality for the platform."
+        ]
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Brightorial Pvt. Ltd. (JobSahi Dashboard)",
+        period: "Client Engagement (May 2025 - Jan 2026)",
+        description: [
+          "Developed and integrated 10+ PHP REST APIs with React.js for the JobSahi recruitment platform.",
+          "Optimized MySQL queries, reducing API response time by 25%.",
+          "Built responsive candidate application and recruiter dashboard modules supporting 5,000+ job seekers."
+        ]
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Code-B Solutions Pvt. Ltd.",
+        period: "Client Engagement (Feb 2025 - April 2025)",
+        description: [
+          "Developed full-stack modules using Java, Spring Boot, React.js, and REST APIs.",
+          "Implemented responsive UI features, API integrations, and application enhancements.",
+          "Engineered robust MIS components with comprehensive data validation."
+        ]
+      },
+      {
+        role: "Backend & UI Developer",
+        company: "Lord's Mark Insurance Broking Services Pvt. Ltd.",
+        period: "Client Engagement (Dec 2024 - Jan 2025)",
+        description: [
+          "Developed backend API functionality and UI enhancements for insurance and customer workflows using Spring Boot and Angular.",
+          "Implemented data-processing modules for policy and customer information.",
+          "Integrated secure authentication and role-based access control (RBAC)."
+        ]
+      },
+      {
+        role: "Software Developer",
+        company: "Visom6 Technology Pvt. Ltd.",
+        period: "Client Engagement(July 2024- Oct 2024)",
+        description: [
+          "Developed CRUD modules, REST APIs, and third-party integrations for e-commerce and business applications (Zig Cabio Admin Panel).",
+          "Built responsive frontend components supporting core application functionality."
+        ]
+      }
     ]
   },
   {
     role: "Junior Java Developer",
     company: "NIT Solution Pvt. Ltd.",
-    period: "Jan 2024 – Apr 2024",
+    period: "Jan 2024 – May 2024",
     description: [
-      "Designed and developed a complete Employee Management System handling employee records and organizational HR operations.",
-      "Developed scalable backend services using Spring Boot with RESTful API architecture and built 15+ REST APIs.",
-      "Implemented authentication and authorization for secure access management across Admin and Employee modules.",
-      "Integrated Angular frontend with backend APIs and used Hibernate/JPA for database operations, improving response time by 30%."
+      "Assisted senior engineers with Java-based application development using Spring Boot and Angular.",
+      "Developed RESTful APIs, database modules, and backend services with Hibernate, JPA, and MySQL.",
+      "Contributed to employee management workflows and administrative reporting systems."
     ]
   }
 ];
