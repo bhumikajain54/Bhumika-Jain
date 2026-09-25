@@ -277,10 +277,7 @@ export const projects = [
     ],
     demo: "https://webbiez-infotech.netlify.app/",
     image: "/project-images/webbiez.png"
-  }
-];
-
-export const otherProjects = [
+  },
   {
     title: "Bhumika Jain Portfolio (React)",
     tech: ["React.js", "Tailwind CSS", "Framer Motion", "Lucide React"],
@@ -373,7 +370,6 @@ export const otherProjects = [
     image: "/project-images/old_portfolio_2.png"
   }
 ];
-
 export const education = [
   {
     degree: "MCA (Master of Computer Applications)",
