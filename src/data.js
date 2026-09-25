@@ -138,20 +138,8 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Bhumika Jain Portfolio (React)",
-    tech: ["React.js", "Tailwind CSS", "Framer Motion", "Lucide React"],
-    features: [
-      "Modern dark-themed professional developer portfolio",
-      "Dynamic calculations for years of experience and project stats",
-      "Sleek glassmorphism card designs with hover micro-animations",
-      "Fully responsive layout optimized for all device sizes"
-    ],
-    github: "https://github.com/bhumikajain54/Bhumika-Jain",
-    demo: "https://bhumika-jain.vercel.app/",
-    image: "/project-images/bhumika_portfolio_react.png"
-  },
-  {
     title: "JobSahi Dashboard",
+    category: "featured",
     tech: ["React.js", "Tailwind CSS", "PHP", "MySQL"],
     features: [
       "Streamlined hiring process for recruiters",
@@ -163,20 +151,8 @@ export const projects = [
     image: "/project-images/jobsahi.png"
   },
   {
-    title: "EMS (Employee Management System)",
-    tech: ["Java", "Spring Boot", "Angular", "MySQL"],
-    features: [
-      "End-to-end organizational data handling",
-      "Automated payroll and attendance tracking",
-      "Employee profile and role-based access control",
-      "Secure REST API integration"
-    ],
-    github: "https://github.com/bhumikajain54/EmployeeManagementSystem",
-    demo: "https://nitsolution.netlify.app/login",
-    image: "/project-images/ems.png"
-  },
-  {
     title: "Insurance MIS (Management Information System)",
+    category: "featured",
     tech: ["Spring Boot", "Angular", "MySQL"],
     features: [
       "Dynamic policy management and tracking system",
@@ -190,6 +166,7 @@ export const projects = [
   },
   {
     title: "Full-Stack MIS (Management Information System)",
+    category: "featured",
     tech: ["Spring Boot", "Reactjs", "MySQL"],
     features: [
       "Comprehensive invoicing and billing automation",
@@ -202,7 +179,8 @@ export const projects = [
     image: "/project-images/fullstack_mis.png"
   },
   {
-    title: "ZigCab Frontend",
+    title: "ZigCab (ZipCabio) Frontend",
+    category: "featured",
     tech: ["React.js", "API Integration"],
     features: [
       "Developed interactive frontend for cab booking services",
@@ -215,20 +193,8 @@ export const projects = [
     image: "/project-images/zigcab.png"
   },
   {
-    title: "Sanitary Ware E-Commerce Platform",
-    tech: ["HTML5", "CSS3", "Responsive Design"],
-    features: [
-      "Developed a professional business website for sanitaryware products",
-      "Created a clean, responsive layout using semantic HTML and CSS",
-      "Designed an intuitive product showcase and navigation system",
-      "Optimized for cross-device compatibility and performance"
-    ],
-    github: "https://github.com/bhumikajain54/Web-Designing1",
-    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
-    image: "/project-images/sanitary_ecommerce.png"
-  },
-  {
     title: "Full Stack Sanitary Ware Shop",
+    category: "featured",
     tech: ["Spring Boot", "React.js", "Tailwind CSS", "MySQL"],
     features: [
       "Developed as a freelance project for industrial clients",
@@ -242,6 +208,7 @@ export const projects = [
   },
   {
     title: "Vikram School Website",
+    category: "featured",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
       "Comprehensive information portal for educational institutions",
@@ -254,59 +221,22 @@ export const projects = [
     image: "/project-images/vikram_school.png"
   },
   {
-    title: "Pankhuri's Cakes & Kitchen",
-    tech: ["HTML5", "CSS3"],
+    title: "Aarti Nathani Portfolio",
+    category: "featured",
+    tech: ["React.js", "Tailwind CSS", "Framer Motion", "UI/UX Design"],
     features: [
-      "Elegant bakery website with a focus on visual storytelling",
-      "Interactive product gallery for specialized cakes",
-      "Clean, responsive layout with smooth navigation",
-      "Optimized for fast loading and mobile experience"
+      "Premium UI/UX Designer portfolio with a modern neon aesthetic",
+      "Custom interactive hero section and experience visualization",
+      "Seamless navigation with smooth Framer Motion animations",
+      "Fully responsive layout optimized for high-end visual storytelling"
     ],
-    github: "https://github.com/bhumikajain54/Web-designing3",
-    demo: "https://bhumikajain54.github.io/Web-designing3/Cake.html",
-    image: "/project-images/cakes_kitchen.png"
-  },
-  {
-    title: "Vegetable Shopping Website",
-    tech: ["HTML5", "CSS3"],
-    features: [
-      "Fresh produce e-commerce landing page design",
-      "Vibrant UI with grid-based vegetable categories",
-      "Modern aesthetic for organic food shopping",
-      "Fully responsive and cross-browser compatible"
-    ],
-    github: "https://github.com/bhumikajain54/Web-designing2",
-    demo: "https://bhumikajain54.github.io/Web-designing2/grocerystoremanagementsystem.html",
-    image: "/project-images/vegetable_store.png"
-  },
-  {
-    title: "Digital Newspaper Page",
-    tech: ["HTML5", "CSS3"],
-    features: [
-      "Complex multi-column layout for digital news articles",
-      "Semantic HTML structure for headers and content",
-      "Classic newspaper aesthetic with modern responsiveness",
-      "Typography-focused design for optimal readability"
-    ],
-    github: "https://github.com/bhumikajain54/Web-designing",
-    demo: "https://bhumikajain54.github.io/Web-designing/newspaper1.html",
-    image: "/project-images/digital_newspaper.png"
-  },
-  {
-    title: "Bhumika Jain Portfolio (HTML/CSS)",
-    tech: ["HTML5", "CSS3"],
-    features: [
-      "Personal portfolio showcasing initial web development projects",
-      "Built with vanilla HTML and CSS for high performance",
-      "Fully responsive and mobile-friendly layout",
-      "Semantic markup for optimal accessibility and SEO"
-    ],
-    github: "https://github.com/bhumikajain54/Portfoilo",
-    demo: "https://bhumikajain54.github.io/Portfoilo/",
-    image: "/project-images/bhumika_portfolio_html.png"
+    github: "https://github.com/bhumikajain54/Aarti-Nathani",
+    demo: "https://aartinathani.netlify.app/",
+    image: "/project-images/aarti_portfolio.png"
   },
   {
     title: "Avinesh Jain Portfolio",
+    category: "featured",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
       "Custom professional portfolio for showcasing creative work",
@@ -320,6 +250,7 @@ export const projects = [
   },
   {
     title: "Omkar Chavan Portfolio",
+    category: "featured",
     tech: ["React.js", "Tailwind CSS", "Lucide React"],
     features: [
       "Modern developer portfolio with a sleek, minimal aesthetic",
@@ -332,20 +263,8 @@ export const projects = [
     image: "/project-images/omkar_portfolio.png"
   },
   {
-    title: "Aarti Nathani Portfolio",
-    tech: ["React.js", "Tailwind CSS", "Framer Motion", "UI/UX Design"],
-    features: [
-      "Premium UI/UX Designer portfolio with a modern neon aesthetic",
-      "Custom interactive hero section and experience visualization",
-      "Seamless navigation with smooth Framer Motion animations",
-      "Fully responsive layout optimized for high-end visual storytelling"
-    ],
-    github: "https://github.com/bhumikajain54/Aarti-Nathani",
-    demo: "https://aartinathani.netlify.app/",
-    image: "/project-images/aarti_portfolio.png"
-  },
-  {
     title: "Webbiez-infotech",
+    category: "featured",
     tech: ["HTML", "CSS", "Bootstrap"],
     features: [
       "Professional corporate website showcasing technology services",
@@ -357,7 +276,106 @@ export const projects = [
     image: "/project-images/webbiez.png"
   },
   {
+    title: "Sanitary Ware E-Commerce Platform",
+    category: "other",
+    tech: ["HTML5", "CSS3", "Responsive Design"],
+    features: [
+      "Developed a professional business website for sanitaryware products",
+      "Created a clean, responsive layout using semantic HTML and CSS",
+      "Designed an intuitive product showcase and navigation system",
+      "Optimized for cross-device compatibility and performance"
+    ],
+    github: "https://github.com/bhumikajain54/Web-Designing1",
+    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
+    image: "/project-images/sanitary_ecommerce.png"
+  },
+  {
+    title: "Bhumika Jain Portfolio (React)",
+    category: "other",
+    tech: ["React.js", "Tailwind CSS", "Framer Motion", "Lucide React"],
+    features: [
+      "Modern dark-themed professional developer portfolio",
+      "Dynamic calculations for years of experience and project stats",
+      "Sleek glassmorphism card designs with hover micro-animations",
+      "Fully responsive layout optimized for all device sizes"
+    ],
+    github: "https://github.com/bhumikajain54/Bhumika-Jain",
+    demo: "https://bhumika-jain.vercel.app/",
+    image: "/project-images/bhumika_portfolio_react.png"
+  },
+  {
+    title: "EMS (Employee Management System)",
+    category: "other",
+    tech: ["Java", "Spring Boot", "Angular", "MySQL"],
+    features: [
+      "End-to-end organizational data handling",
+      "Automated payroll and attendance tracking",
+      "Employee profile and role-based access control",
+      "Secure REST API integration"
+    ],
+    github: "https://github.com/bhumikajain54/EmployeeManagementSystem",
+    demo: "https://nitsolution.netlify.app/login",
+    image: "/project-images/ems.png"
+  },
+  {
+    title: "Pankhuri's Cakes & Kitchen",
+    category: "other",
+    tech: ["HTML5", "CSS3"],
+    features: [
+      "Elegant bakery website with a focus on visual storytelling",
+      "Interactive product gallery for specialized cakes",
+      "Clean, responsive layout with smooth navigation",
+      "Optimized for fast loading and mobile experience"
+    ],
+    github: "https://github.com/bhumikajain54/Web-designing3",
+    demo: "https://bhumikajain54.github.io/Web-designing3/Cake.html",
+    image: "/project-images/cakes_kitchen.png"
+  },
+  {
+    title: "Vegetable Shopping Website",
+    category: "other",
+    tech: ["HTML5", "CSS3"],
+    features: [
+      "Fresh produce e-commerce landing page design",
+      "Vibrant UI with grid-based vegetable categories",
+      "Modern aesthetic for organic food shopping",
+      "Fully responsive and cross-browser compatible"
+    ],
+    github: "https://github.com/bhumikajain54/Web-designing2",
+    demo: "https://bhumikajain54.github.io/Web-designing2/grocerystoremanagementsystem.html",
+    image: "/project-images/vegetable_store.png"
+  },
+  {
+    title: "Digital Newspaper Page",
+    category: "other",
+    tech: ["HTML5", "CSS3"],
+    features: [
+      "Complex multi-column layout for digital news articles",
+      "Semantic HTML structure for headers and content",
+      "Classic newspaper aesthetic with modern responsiveness",
+      "Typography-focused design for optimal readability"
+    ],
+    github: "https://github.com/bhumikajain54/Web-designing",
+    demo: "https://bhumikajain54.github.io/Web-designing/newspaper1.html",
+    image: "/project-images/digital_newspaper.png"
+  },
+  {
+    title: "Bhumika Jain Portfolio (HTML/CSS)",
+    category: "other",
+    tech: ["HTML5", "CSS3"],
+    features: [
+      "Personal portfolio showcasing initial web development projects",
+      "Built with vanilla HTML and CSS for high performance",
+      "Fully responsive and mobile-friendly layout",
+      "Semantic markup for optimal accessibility and SEO"
+    ],
+    github: "https://github.com/bhumikajain54/Portfoilo",
+    demo: "https://bhumikajain54.github.io/Portfoilo/",
+    image: "/project-images/bhumika_portfolio_html.png"
+  },
+  {
     title: "Old Bhumika Portfolio",
+    category: "other",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
       "Interactive 3D-inspired user interface design",
@@ -370,6 +388,8 @@ export const projects = [
     image: "/project-images/old_portfolio_2.png"
   }
 ];
+
+export const otherProjects = projects.filter((p) => p.category === "other");
 
 export const education = [
   {
