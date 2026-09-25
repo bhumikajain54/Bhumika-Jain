@@ -26,15 +26,7 @@ const Showcase = () => {
     { id: 'skills', label: 'Tech Stack', icon: <Code2 size={18} /> },
   ];
 
-  const [projectFilter, setProjectFilter] = useState('all');
-
-  const filteredProjects = projects.filter((p) => {
-    if (projectFilter === 'featured') return p.category === 'featured';
-    if (projectFilter === 'other') return p.category === 'other';
-    return true;
-  });
-
-  const displayedProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, 6);
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
   const displayedCertificates = showAllCertificates ? certifications : certifications.slice(0, 6);
 
   return (
@@ -160,34 +152,6 @@ const Showcase = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                {/* Project Category Filter Pills */}
-                <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-                  {[
-                    { id: 'all', label: 'All Projects', count: projects.length },
-                    { id: 'featured', label: 'Client / Featured', count: projects.filter(p => p.category === 'featured').length },
-                    { id: 'other', label: 'Other Projects', count: projects.filter(p => p.category === 'other').length },
-                  ].map((f) => (
-                    <button
-                      key={f.id}
-                      onClick={() => {
-                        setProjectFilter(f.id);
-                        setShowAllProjects(false);
-                      }}
-                      className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wide uppercase transition-all duration-300 flex items-center gap-2 border ${
-                        projectFilter === f.id
-                          ? 'bg-gradient-to-r from-[#7042f8] to-[#00d2ff] text-white border-transparent shadow-[0_0_20px_rgba(112,66,248,0.5)]'
-                          : 'bg-slate-900/70 text-slate-400 border-white/10 hover:border-cyan-400/40 hover:text-white'
-                      }`}
-                    >
-                      <span>{f.label}</span>
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
-                        projectFilter === f.id ? 'bg-white/20 text-white' : 'bg-white/5 text-slate-400'
-                      }`}>
-                        {f.count}
-                      </span>
-                    </button>
-                  ))}
-                </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {displayedProjects.map((project, idx) => (
@@ -243,7 +207,7 @@ const Showcase = () => {
                 </div>
 
                 {/* See More Button */}
-                {filteredProjects.length > 6 && (
+                {projects.length > 6 && (
                   <motion.div
                     layout
                     className="mt-12 flex justify-start"
