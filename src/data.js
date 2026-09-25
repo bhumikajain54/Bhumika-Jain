@@ -139,7 +139,6 @@ export const experience = [
 export const projects = [
   {
     title: "JobSahi Dashboard",
-    category: "Freelance(Brightorial Pvt Ltd(Yovexa Solutions))",
     tech: ["React.js", "Tailwind CSS", "PHP", "MySQL"],
     features: [
       "Streamlined hiring process for recruiters",
@@ -152,7 +151,6 @@ export const projects = [
   },
   {
     title: "Insurance MIS (Management Information System)",
-    category: "Freelance(Lord's Mark Insurance Broking Services Pvt. Ltd.(Yovexa Solutions))",
     tech: ["Spring Boot", "Angular", "MySQL"],
     features: [
       "Dynamic policy management and tracking system",
@@ -166,7 +164,6 @@ export const projects = [
   },
   {
     title: "Full-Stack MIS (Management Information System)",
-    category: "Freelance(Code-B Solutions Pvt. Ltd.(Yovexa Solutions))",
     tech: ["Spring Boot", "Reactjs", "MySQL"],
     features: [
       "Comprehensive invoicing and billing automation",
@@ -180,7 +177,6 @@ export const projects = [
   },
   {
     title: "ZigCab (ZipCabio) Frontend",
-    category: "Freelance(Visom6 Technology Pvt. Ltd.(Yovexa Solutions))",
     tech: ["React.js", "API Integration"],
     features: [
       "Developed interactive frontend for cab booking services",
@@ -193,8 +189,20 @@ export const projects = [
     image: "/project-images/zigcab.png"
   },
   {
+    title: "Sanitary Ware E-Commerce Platform",
+    tech: ["HTML5", "CSS3", "Responsive Design"],
+    features: [
+      "Developed a professional business website for sanitaryware products",
+      "Created a clean, responsive layout using semantic HTML and CSS",
+      "Designed an intuitive product showcase and navigation system",
+      "Optimized for cross-device compatibility and performance"
+    ],
+    github: "https://github.com/bhumikajain54/Web-Designing1",
+    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
+    image: "/project-images/sanitary_ecommerce.png"
+  },
+  {
     title: "Full Stack Sanitary Ware Shop",
-    category: "Freelance(Sajal Jain(Yovexa Solutions))",
     tech: ["Spring Boot", "React.js", "Tailwind CSS", "MySQL"],
     features: [
       "Developed as a freelance project for industrial clients",
@@ -208,7 +216,6 @@ export const projects = [
   },
   {
     title: "Vikram School Website",
-    category: "Freelance(Aman Kasar(Yovexa Solutions))",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
       "Comprehensive information portal for educational institutions",
@@ -222,7 +229,6 @@ export const projects = [
   },
   {
     title: "Aarti Nathani Portfolio",
-    category: "Freelance(Aarti Nathani(Yovexa Solutions))",
     tech: ["React.js", "Tailwind CSS", "Framer Motion", "UI/UX Design"],
     features: [
       "Premium UI/UX Designer portfolio with a modern neon aesthetic",
@@ -236,7 +242,6 @@ export const projects = [
   },
   {
     title: "Avinesh Jain Portfolio",
-    category: "Freelance(Avinesh Jain(Yovexa Solutions))",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
       "Custom professional portfolio for showcasing creative work",
@@ -250,7 +255,6 @@ export const projects = [
   },
   {
     title: "Omkar Chavan Portfolio",
-    category: "Freelance(Omkar Chavan(Yovexa Solutions))",
     tech: ["React.js", "Tailwind CSS", "Lucide React"],
     features: [
       "Modern developer portfolio with a sleek, minimal aesthetic",
@@ -264,7 +268,6 @@ export const projects = [
   },
   {
     title: "Webbiez-infotech",
-    category: "Freelance(Webbiez-infotech(Yovexa Solutions))",
     tech: ["HTML", "CSS", "Bootstrap"],
     features: [
       "Professional corporate website showcasing technology services",
@@ -274,24 +277,12 @@ export const projects = [
     ],
     demo: "https://webbiez-infotech.netlify.app/",
     image: "/project-images/webbiez.png"
-  },
-  {
-    title: "Sanitary Ware E-Commerce Platform",
-    category: "Self",
-    tech: ["HTML5", "CSS3", "Responsive Design"],
-    features: [
-      "Developed a professional business website for sanitaryware products",
-      "Created a clean, responsive layout using semantic HTML and CSS",
-      "Designed an intuitive product showcase and navigation system",
-      "Optimized for cross-device compatibility and performance"
-    ],
-    github: "https://github.com/bhumikajain54/Web-Designing1",
-    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
-    image: "/project-images/sanitary_ecommerce.png"
-  },
+  }
+];
+
+export const otherProjects = [
   {
     title: "Bhumika Jain Portfolio (React)",
-    category: "Self",
     tech: ["React.js", "Tailwind CSS", "Framer Motion", "Lucide React"],
     features: [
       "Modern dark-themed professional developer portfolio",
@@ -305,7 +296,6 @@ export const projects = [
   },
   {
     title: "EMS (Employee Management System)",
-    category: "NIT Solutions Kolkata",
     tech: ["Java", "Spring Boot", "Angular", "MySQL"],
     features: [
       "End-to-end organizational data handling",
@@ -319,7 +309,6 @@ export const projects = [
   },
   {
     title: "Pankhuri's Cakes & Kitchen",
-    category: "Self",
     tech: ["HTML5", "CSS3"],
     features: [
       "Elegant bakery website with a focus on visual storytelling",
@@ -333,7 +322,6 @@ export const projects = [
   },
   {
     title: "Vegetable Shopping Website",
-    category: "Self",
     tech: ["HTML5", "CSS3"],
     features: [
       "Fresh produce e-commerce landing page design",
@@ -347,7 +335,6 @@ export const projects = [
   },
   {
     title: "Digital Newspaper Page",
-    category: "Self",
     tech: ["HTML5", "CSS3"],
     features: [
       "Complex multi-column layout for digital news articles",
@@ -361,7 +348,6 @@ export const projects = [
   },
   {
     title: "Bhumika Jain Portfolio (HTML/CSS)",
-    category: "Self",
     tech: ["HTML5", "CSS3"],
     features: [
       "Personal portfolio showcasing initial web development projects",
@@ -375,7 +361,6 @@ export const projects = [
   },
   {
     title: "Old Bhumika Portfolio",
-    category: "Self",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     features: [
       "Interactive 3D-inspired user interface design",
@@ -388,8 +373,6 @@ export const projects = [
     image: "/project-images/old_portfolio_2.png"
   }
 ];
-
-export const otherProjects = projects.filter((p) => p.category === "other");
 
 export const education = [
   {
