@@ -189,19 +189,6 @@ export const projects = [
     image: "/project-images/zigcab.png"
   },
   {
-    title: "Sanitary Ware E-Commerce Platform",
-    tech: ["HTML5", "CSS3", "Responsive Design"],
-    features: [
-      "Developed a professional business website for sanitaryware products",
-      "Created a clean, responsive layout using semantic HTML and CSS",
-      "Designed an intuitive product showcase and navigation system",
-      "Optimized for cross-device compatibility and performance"
-    ],
-    github: "https://github.com/bhumikajain54/Web-Designing1",
-    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
-    image: "/project-images/sanitary_ecommerce.png"
-  },
-  {
     title: "Full Stack Sanitary Ware Shop",
     tech: ["Spring Boot", "React.js", "Tailwind CSS", "MySQL"],
     features: [
@@ -290,6 +277,19 @@ export const projects = [
     github: "https://github.com/bhumikajain54/Bhumika-Jain",
     demo: "https://bhumika-jain.vercel.app/",
     image: "/project-images/bhumika_portfolio_react.png"
+  },
+  {
+    title: "Sanitary Ware E-Commerce Platform",
+    tech: ["HTML5", "CSS3", "Responsive Design"],
+    features: [
+      "Developed a professional business website for sanitaryware products",
+      "Created a clean, responsive layout using semantic HTML and CSS",
+      "Designed an intuitive product showcase and navigation system",
+      "Optimized for cross-device compatibility and performance"
+    ],
+    github: "https://github.com/bhumikajain54/Web-Designing1",
+    demo: "https://bhumikajain54.github.io/Web-Designing1/sanitaryware.html",
+    image: "/project-images/sanitary_ecommerce.png"
   },
   {
     title: "EMS (Employee Management System)",
